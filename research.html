@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Research - Topic 1 | MSL Inha</title>
+    <title>Research - EUV Materials | MSL Inha</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .cv-section { margin-top: 40px; }
@@ -11,6 +11,8 @@
             border-bottom: 2px solid #003a71; 
             padding-bottom: 10px; 
             margin-bottom: 25px; 
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
         /* 리서치 전용 레이아웃 (사진 상단, 글 하단) */
@@ -18,44 +20,56 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
+            gap: 35px;
+            margin-bottom: 60px;
         }
         .research-image-box {
             width: 100%;
-            max-width: 850px;
+            max-width: 900px;
             text-align: center;
         }
         .research-image-box img {
             width: 100%;
-            border: 1px solid #ddd;
+            border: 1px solid #eee;
             background: #fff;
-            padding: 5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 4px;
         }
         .research-text-box {
             width: 100%;
             max-width: 850px;
+            text-align: justify; /* 양쪽 정렬로 깔끔하게 */
         }
         .research-text-box strong {
             display: block;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #003a71;
-            margin-bottom: 15px;
-            border-left: 5px solid #00bcd4;
-            padding-left: 12px;
+            margin-bottom: 20px;
+            border-left: 6px solid #00bcd4;
+            padding-left: 15px;
+            letter-spacing: -0.5px;
         }
         .research-text-box p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #444;
-            line-height: 1.9;
+            line-height: 2.0;
             margin: 0;
             word-break: keep-all;
         }
         .keywords-bar {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #00bcd4;
+            margin-top: 25px;
+            padding: 12px 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #003a71;
             font-weight: bold;
+        }
+        .keywords-bar span {
+            color: #00bcd4;
+            margin-left: 10px;
+            font-weight: normal;
         }
     </style>
 </head>
@@ -65,7 +79,7 @@
         <a href="index.html" class="logo"><img src="images/logo.png" alt="MSL Logo" height="50"></a>
         <ul>
             <li><a href="professor.html">PROFESSOR</a></li>
-            <li><a href="research.html">RESEARCH</a></li>
+            <li><a href="research.html" class="active">RESEARCH</a></li>
             <li><a href="publications.html">PUBLICATIONS</a></li>
             <li><a href="people.html">MEMBERS</a></li>
             <li class="dropdown">
@@ -81,27 +95,27 @@
 </header>
 
 <div class="main-wrapper">
-    <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71;">RESEARCH</h2>
+    <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">RESEARCH</h2>
 
     <div class="pub-tabs">
-        <a href="research.html" class="pub-tab active">주제 1</a>
-        <a href="research_topic2.html" class="pub-tab">주제 2</a>
-        <a href="research_topic3.html" class="pub-tab">주제 3</a>
+        <a href="research.html" class="pub-tab active">Next-gen Lithography</a>
+        <a href="research_topic2.html" class="pub-tab">Advanced Polymers</a>
+        <a href="research_topic3.html" class="pub-tab">Organic Electronics</a>
     </div>
 
     <div class="cv-section">
-        <h4>연구 주제</h4>
+        <h4>Core Research Areas</h4>
         <div class="research-container">
             <div class="research-image-box">
-                <img src="images/research_1.jpg" alt="연구 사진">
+                <img src="images/research_1.jpg" alt="EUV Lithography Research Illustration">
             </div>
+
             <div class="research-text-box">
-                <strong>연구 주제</strong>
-                <p>
-연구 내용
-                </p>
+                <strong>EUV (Extreme Ultraviolet) Resist Materials</strong>
+ 
                 <div class="keywords-bar">
-                    Keywords:                 </div>
+                    Keywords: <span>EUV, Photoresist, Underlayer, Semiconductor, Polymer Synthesis, Lithography</span>
+                </div>
             </div>
         </div>
     </div>
