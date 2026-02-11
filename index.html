@@ -5,7 +5,7 @@
     <title>Materials Synthesis Laboratory | Inha Univ.</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 메인 페이지 전용 박스 디자인 */
+        /* 메인 페이지 전용 박스 디자인 스타일 */
         body { background-color: #f8f9fa; } 
 
         .hero-banner {
@@ -51,7 +51,7 @@
         .content-box-header h3 { color: #003a71; margin: 0; font-size: 1.25rem; font-weight: 800; }
         .btn-more { text-decoration: none; color: #00bcd4; font-size: 1.4rem; font-weight: bold; }
 
-        /* 공지사항 리스트 */
+        /* 공지사항 리스트 스타일 */
         .notice-list { list-style: none; padding: 0; margin: 0; }
         .notice-list li {
             display: flex;
@@ -61,10 +61,10 @@
         }
         .notice-list li:last-child { border-bottom: none; }
         .notice-list li a { text-decoration: none; color: #333; font-size: 0.95rem; transition: 0.2s; }
-        .notice-list li a:hover { color: #00bcd4; }
+        .notice-list li a:hover { color: #00bcd4; font-weight: bold; }
         .notice-date { color: #999; font-size: 0.85rem; }
 
-        /* 갤러리 프리뷰 */
+        /* 갤러리 프리뷰 스타일 */
         .gallery-link { display: flex; gap: 20px; text-decoration: none; color: inherit; }
         .gallery-link img { width: 170px; height: 115px; object-fit: cover; border-radius: 5px; border: 1px solid #eee; }
         .gallery-preview-text { flex: 1; }
@@ -138,9 +138,9 @@
                 <a href="notice.html" class="btn-more">+</a>
             </div>
             <ul class="notice-list" id="notice-sync-list">
-                <li><a href="notice_view_1.html">Loading...</a> <span class="notice-date"></span></li>
-                <li><a href="notice_view_2.html">Loading...</a> <span class="notice-date"></span></li>
-                <li><a href="notice_view_3.html">Loading...</a> <span class="notice-date"></span></li>
+                <li><a href="notice_view/notice_view_1.html">Loading...</a> <span class="notice-date"></span></li>
+                <li><a href="notice_view/notice_view_2.html">Loading...</a> <span class="notice-date"></span></li>
+                <li><a href="notice_view/notice_view_3.html">Loading...</a> <span class="notice-date"></span></li>
             </ul>
         </div>
 
@@ -151,7 +151,7 @@
             </div>
             <div id="gallery-sync-box">
                 <a href="gallery_view/gallery_view_1.html" class="gallery-link">
-                    <div style="padding: 20px; color: #999;">Fetching latest update...</div>
+                    <div style="padding: 20px; color: #999;">Updating content...</div>
                 </a>
             </div>
         </div>
@@ -193,13 +193,15 @@
                 const html = await res.text();
                 const doc = parser.parseFromString(html, 'text/html');
                 
-                // 제목(h3) 추출
-                a.innerText = doc.querySelector('h3').innerText;
-                // 본문에서 날짜(YYYY.MM.DD) 패턴 추출
+                // 상세페이지의 <h3> 제목 추출
+                const titleElement = doc.querySelector('h3');
+                if (titleElement) a.innerText = titleElement.innerText;
+                
+                // 날짜 추출 (YYYY.MM.DD)
                 const dateMatch = doc.body.innerText.match(/\d{4}\.\d{2}\.\d{2}/);
                 if (dateMatch) li.querySelector('.notice-date').innerText = dateMatch[0];
             } catch (e) {
-                li.style.display = 'none'; // 파일이 없으면 해당 줄 숨김
+                li.style.display = 'none'; // 파일이 없으면 숨김
             }
         }
 
@@ -207,12 +209,13 @@
         const galleryBox = document.querySelector('#gallery-sync-box .gallery-link');
         try {
             const res = await fetch('gallery_view/gallery_view_1.html');
+            if (!res.ok) throw new Error();
             const html = await res.text();
             const doc = parser.parseFromString(html, 'text/html');
 
-            const title = doc.querySelector('h3').innerText;
-            const imgSrc = doc.querySelector('img').src;
-            // 본문의 첫 번째 strong 태그 내용 가져오기
+            const title = doc.querySelector('h3') ? doc.querySelector('h3').innerText : "Update";
+            const imgElement = doc.querySelector('img');
+            const imgSrc = imgElement ? imgElement.src : "";
             const boldMsg = doc.querySelector('strong') ? doc.querySelector('strong').innerText : "";
             const dateMatch = doc.body.innerText.match(/\d{4}\.\d{2}\.\d{2}/);
 
@@ -225,7 +228,7 @@
                 </div>
             `;
         } catch (e) {
-            console.log("Gallery sync failed.");
+            console.log("Gallery sync info: No latest file found.");
         }
     }
 
