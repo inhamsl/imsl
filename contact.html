@@ -17,9 +17,37 @@
             gap: 10px;
         }
 
+        /* ✅ 인재 모집(Join Us) 박스 스타일 추가 */
+        .join-us-box {
+            margin: 30px 0 20px 0;
+            padding: 30px;
+            background-color: #eef7f9; /* 연한 하늘색 배경 */
+            border: 2px dashed #00bcd4; /* 강조 점선 테두리 */
+            border-radius: 12px;
+        }
+        .join-us-box h3 {
+            margin: 0 0 15px 0;
+            color: #003a71;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .join-us-box p {
+            line-height: 1.8;
+            color: #444;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+        .email-link {
+            color: #003a71;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
         /* 연락처 정보 박스 */
         .contact-info-box {
-            margin: 30px 0 50px 0; 
+            margin: 0 0 50px 0; 
             padding: 25px; 
             background-color: #f8f9fa; 
             border: 1px solid #eee;
@@ -106,6 +134,14 @@
 <div class="main-wrapper">
     <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71;">CONTACT</h2>
 
+    <div class="join-us-box">
+        <h3> Join Our Laboratory</h3>
+        <p>
+            재료합성연구실(MSL)에서는 열정적이고 창의적인 <strong>대학원생 및 학부연구생</strong>을 상시 모집하고 있습니다. <br>
+            차세대 반도체 소재 및 고분자 합성 연구에 관심 있는 학생들의 많은 지원 바랍니다. <a href="mailto:jklee@inha.ac.kr" class="email-link">jkl36@inha.ac.kr</a>.
+        </p>
+    </div>
+
     <div class="contact-info-box">
         <h3 style="margin: 0 0 20px 0; color: #003a71; font-size: 1.5rem;">연구실 정보</h3>
         <div class="info-row">
@@ -148,7 +184,8 @@
                 <p>
                     <span class="highlight">주안역(1호선)</span>에서 하차하여 버스 정류장에서 <span class="highlight">511번 버스</span>를 탑승합니다.<br>
                     <span class="highlight">인하대 후문</span> 정류장에서 하차하여 캠퍼스 안으로 들어오신 후, 정면의 학생회관을 지나 중앙광장 옆 <span class="highlight">2호관</span>으로 오시면 됩니다.
-                </div>
+                </p>
+            </div>
 
             <div class="transport-item">
                 <strong>건물 내 상세 위치</strong>
@@ -165,7 +202,6 @@
     <div class="footer-container">
         <div class="footer-info">
             <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-
             Department of Polymer Science and Engineering, Inha University<br>
             669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
         </div>
