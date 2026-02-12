@@ -23,6 +23,65 @@
         .hero-banner h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: 1px; }
         .hero-banner h1 span { color: #00bcd4; }
 
+        /* 신규: 최신 논문 강조 박스 */
+        .latest-pub-container {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .pub-highlight-box {
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .pub-highlight-box:hover {
+            transform: translateY(-5px);
+            border-color: #00bcd4;
+        }
+        .pub-img-side {
+            flex: 0 0 220px;
+        }
+        .pub-img-side img {
+            width: 100%;
+            border: 1px solid #eee;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        .pub-info-side {
+            flex: 1;
+        }
+        .pub-journal {
+            color: #00bcd4;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .pub-title-main {
+            font-size: 1.4rem;
+            color: #003a71;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        .pub-authors-main {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .pub-desc {
+            font-size: 0.92rem;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
         /* 섹션 박스화 레이아웃 */
         .main-content-grid {
             display: grid;
@@ -51,7 +110,7 @@
         .content-box-header h3 { color: #003a71; margin: 0; font-size: 1.25rem; font-weight: 800; }
         .btn-more { text-decoration: none; color: #00bcd4; font-size: 1.4rem; font-weight: bold; }
 
-        /* 공지사항 리스트 스타일 */
+        /* 공지사항/갤러리 스타일 (기존과 동일) */
         .notice-list { list-style: none; padding: 0; margin: 0; }
         .notice-list li {
             display: flex;
@@ -64,7 +123,6 @@
         .notice-list li a:hover { color: #00bcd4; font-weight: bold; }
         .notice-date { color: #999; font-size: 0.85rem; }
 
-        /* 갤러리 프리뷰 스타일 */
         .gallery-link { display: flex; gap: 20px; text-decoration: none; color: inherit; }
         .gallery-link img { width: 170px; height: 115px; object-fit: cover; border-radius: 5px; border: 1px solid #eee; }
         .gallery-preview-text { flex: 1; }
@@ -72,7 +130,7 @@
         .gallery-preview-text p { font-size: 0.92rem; color: #666; line-height: 1.6; margin: 0; }
         .gallery-preview-text strong { color: #333; display: block; margin-bottom: 5px; }
 
-        /* 하단 카드 링크 */
+        /* 하단 카드 링크 (기존과 동일) */
         .link-cards {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -131,6 +189,28 @@
 </section>
 
 <div class="main-wrapper">
+    
+    <div class="latest-pub-container">
+        <div class="content-box-header">
+            <h3>LATEST PUBLICATION</h3>
+            <a href="publications.html" class="btn-more">+</a>
+        </div>
+        <a href="https://doi.org/10.1021/acs.orglett.XXXXXXX" target="_blank" class="pub-highlight-box">
+            <div class="pub-img-side">
+                <img src="images/latest_paper.jpg" alt="Organic Letters Paper First Page">
+            </div>
+            <div class="pub-info-side">
+                <span class="pub-journal">Organic Letters</span>
+                <h4 class="pub-title-main">Synergistic Fluoroalkyl and Electron-Rich Vinyl Units for Ionizing Radiation-Induced Cross-Linking</h4>
+                <p class="pub-authors-main">Gayoung Kim, Jinseok Lee, and Jin-Kyun Lee*</p>
+                <p class="pub-desc">
+                    본 연구는 이온화 방사선 유도 가교 결합을 위한 불소화 알킬 및 전자 풍부 비닐 단위의 시너지 효과를 탐구합니다. 
+                    차세대 리소그래피 공정에서 고해상도 패턴 형성을 위한 고성능 레지스트 소재의 새로운 설계 원리를 제시합니다.
+                </p>
+            </div>
+        </a>
+    </div>
+
     <div class="main-content-grid">
         <div class="content-box">
             <div class="content-box-header">
@@ -179,10 +259,10 @@
 </footer>
 
 <script>
+    // 기존 동기화 스크립트 그대로 유지 (공지사항/갤러리용)
     async function syncContent() {
         const parser = new DOMParser();
 
-        // 1. 공지사항 3개 동기화 (기존과 동일)
         const notices = document.querySelectorAll('#notice-sync-list li');
         for (let li of notices) {
             const a = li.querySelector('a');
@@ -200,7 +280,6 @@
             } catch (e) { li.style.display = 'none'; }
         }
 
-        // 2. 갤러리 최신글 1개 동기화 (이미지 경로 수정 로직 강화)
         const galleryBox = document.querySelector('#gallery-sync-box .gallery-link');
         try {
             const res = await fetch('gallery_view/gallery_view_2.html');
@@ -209,16 +288,12 @@
             const doc = parser.parseFromString(html, 'text/html');
 
             const title = doc.querySelector('h3') ? doc.querySelector('h3').innerText : "Update";
-            
-            // ✅ 핵심: 이미지 경로에서 ../ 를 제거하여 메인 페이지 기준 경로로 변경
             const imgElement = doc.querySelector('.gallery-photo-box img') || doc.querySelector('img');
             let imgSrc = "";
             if (imgElement) {
                 const originalSrc = imgElement.getAttribute('src');
-                // "../" 로 시작하면 그 부분을 지우고 images/ 로 시작하게 만듭니다.
                 imgSrc = originalSrc.startsWith('../') ? originalSrc.substring(3) : originalSrc;
             }
-            
             const boldMsg = doc.querySelector('strong') ? doc.querySelector('strong').innerText : "";
             const dateMatch = doc.body.innerText.match(/\d{4}\.\s*\d{2}\.\s*\d{2}/);
 
@@ -230,11 +305,8 @@
                     <span class="notice-date">${dateMatch ? dateMatch[0] : ""}</span>
                 </div>
             `;
-        } catch (e) {
-            console.log("Gallery sync failed.");
-        }
+        } catch (e) { console.log("Gallery sync failed."); }
     }
-
     window.addEventListener('DOMContentLoaded', syncContent);
 </script>
 
