@@ -1,21 +1,22 @@
-/* 제목을 한 줄로 제한하고 넘치는 부분은 ... 처리 */
-.notice-table td.title a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.2s;
-    display: block; 
-    
-    /* 추가할 코드 시작 */
-    white-space: nowrap;      /* 줄바꿈 금지 */
-    overflow: hidden;         /* 영역 밖으로 나가는 글자 숨김 */
-    text-overflow: ellipsis;  /* 넘치는 글자를 ...으로 표시 */
-    max-width: 500px;         /* 제목의 최대 길이를 지정 (화면 크기에 따라 조절 가능) */
-    /* 추가할 코드 끝 */
+/* 공통 적용: 제목이 길면 ...으로 생략 */
+.notice-table {
+    table-layout: fixed; /* 테이블 너비 고정 */
+    width: 100%;
 }
 
-/* 날짜 열이 밀리지 않도록 테이블 레이아웃 고정 */
-.notice-table {
-    table-layout: fixed; 
+.notice-table td.title a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%; /* 칸 너비에 맞춰 자동 조절 */
+}
+
+/* 날짜 칸은 밀리지 않게 너비 고정 */
+.notice-table th:last-child, 
+.notice-table td:last-child {
+    width: 120px; 
+    text-align: center;
 }
 
 /* 멤버 카드 레이아웃 스타일 */
