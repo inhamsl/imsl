@@ -110,19 +110,30 @@
         .content-box-header h3 { color: #003a71; margin: 0; font-size: 1.25rem; font-weight: 800; }
         .btn-more { text-decoration: none; color: #00bcd4; font-size: 1.4rem; font-weight: bold; }
 
-        /* 공지사항/갤러리 스타일 (기존과 동일) */
-        .notice-list { list-style: none; padding: 0; margin: 0; }
-        .notice-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .notice-list li:last-child { border-bottom: none; }
-        .notice-list li a { text-decoration: none; color: #333; font-size: 0.95rem; transition: 0.2s; }
-        .notice-list li a:hover { color: #00bcd4; font-weight: bold; }
-        .notice-date { color: #999; font-size: 0.85rem; }
+/* 테이블 레이아웃을 고정하여 칸 너비를 강제함 */
+.notice-table {
+    table-layout: fixed !important; 
+    width: 100% !important;
+}
 
+/* 번호(1열)와 날짜(3열) 너비를 고정 */
+.notice-table th:nth-child(1), .notice-table td:nth-child(1) { width: 50px; }
+.notice-table th:nth-child(3), .notice-table td:nth-child(3) { width: 110px; }
+
+/* 제목(2열) 설정: 넘치는 글자 ... 처리 */
+.notice-table td.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notice-table td.title a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%; /* 부모 칸 너비를 꽉 채움 */
+}
         .gallery-link { display: flex; gap: 20px; text-decoration: none; color: inherit; }
         .gallery-link img { width: 170px; height: 115px; object-fit: cover; border-radius: 5px; border: 1px solid #eee; }
         .gallery-preview-text { flex: 1; }
