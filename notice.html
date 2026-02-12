@@ -11,6 +11,7 @@
             border-collapse: collapse;
             margin-top: 30px;
             font-size: 0.95rem;
+            margin-bottom: 80px; /* 하단 여백 추가 */
         }
 
         .notice-table thead tr {
@@ -42,6 +43,7 @@
             text-decoration: none;
             color: #333;
             transition: color 0.2s;
+            display: block; /* 클릭 영역 확대 */
         }
 
         .notice-table td.title a:hover {
@@ -58,30 +60,6 @@
         .notice-table td.center {
             text-align: center;
             color: #888;
-        }
-
-        /* 페이지네이션 (선택 사항) */
-        .pagination {
-            margin-top: 30px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .pagination a {
-            padding: 5px 12px;
-            border: 1px solid #ddd;
-            text-decoration: none;
-            color: #666;
-            font-size: 0.9rem;
-            border-radius: 3px;
-        }
-
-        .pagination a.active {
-            background-color: #003a71;
-            color: white;
-            border-color: #003a71;
         }
     </style>
 </head>
@@ -107,9 +85,7 @@
 </header>
 
 <div class="main-wrapper">
-    <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71;">NOTICE</h2>
-
-    
+    <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">NOTICE</h2>
 
     <table class="notice-table">
         <thead>
@@ -127,22 +103,14 @@
                 </td>
                 <td class="center">2026-02-10</td>
             </tr>
-        </tbody>
+            </tbody>
     </table>
-
-    <div class="pagination">
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">&raquo;</a>
-    </div>
 </div>
 
 <footer>
     <div class="footer-container">
         <div class="footer-info">
             <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-
             Department of Polymer Science and Engineering, Inha University<br>
             669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
         </div>
