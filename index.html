@@ -6,80 +6,129 @@
     <title>Materials Synthesis Laboratory | Inha Univ.</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 메인 페이지 전용 박스 디자인 스타일 */
-        body { background-color: #f8f9fa; } 
+        /* 기본 배경 및 폰트 설정 */
+        body { background-color: #f4f6f8; margin: 0; padding: 0; }
 
-        /* --- 배너 하단 선을 제거하여 완성한 내추럴 블렌딩 배너 --- */
+        /* --- 1. 레이아웃 통합 및 여백 확대 --- */
+        .hero-container, .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- 2. Boxed Hero Banner (300px 높이 유지) --- */
+        .hero-container { margin-top: 40px; margin-bottom: 60px; } /* 하단 여백 확대 */
         .hero-banner {
             width: 100%;
-            height: 400px;
+            height: 300px; 
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
             background: 
-                /* 상단에서 하단으로 갈수록 투명해지며 페이지 배경색과 자연스럽게 섞임 */
-                linear-gradient(to bottom, 
-                    rgba(0, 58, 113, 0.6) 0%, 
-                    rgba(0, 58, 113, 0.2) 70%, 
-                    rgba(248, 249, 250, 0) 100%), 
-                url('images/main_hero.jpg');
+                linear-gradient(to bottom, rgba(0, 58, 113, 0.5), rgba(0, 58, 113, 0.2)),
+                url('images/main_hero.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            margin-bottom: 40px;
-            /* 사진 하단의 경계선(border-bottom)을 완전히 삭제했습니다. */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
-        
         .hero-banner h1 { 
-            font-size: 3.2rem; 
+            font-size: 2.8rem; 
             font-weight: 900; 
-            letter-spacing: 1px;
-            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4); 
+            text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4); 
             text-align: center;
+            margin: 0;
         }
         .hero-banner h1 span { color: #00bcd4; }
 
-        /* --- 기존 기능 및 스타일 유지 --- */
-        .latest-pub-container { width: 100%; margin-bottom: 30px; }
+        /* --- 3. Latest Publication (저자명 수정 및 여백 확대) --- */
+        .latest-pub-container { width: 100%; margin-bottom: 60px; } /* 하단 여백 확대 */
         .pub-highlight-box {
-            background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 30px;
-            display: flex; gap: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s;
-            text-decoration: none; color: inherit;
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            padding: 35px; /* 내부 여백 확대 */
+            display: flex;
+            gap: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
         .pub-highlight-box:hover { transform: translateY(-5px); border-color: #00bcd4; }
         .pub-img-side { flex: 0 0 220px; }
-        .pub-img-side img { width: 100%; border: 1px solid #eee; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        .pub-img-side img { width: 100%; border-radius: 4px; border: 1px solid #eee; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
         .pub-info-side { flex: 1; }
-        .pub-journal { color: #00bcd4; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .pub-title-main { font-size: 1.4rem; color: #003a71; margin-bottom: 15px; line-height: 1.3; font-weight: 800; }
-        .pub-authors-main { font-size: 1rem; color: #555; margin-bottom: 15px; }
+        .pub-journal { color: #00bcd4; font-weight: 800; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        .pub-title-main { font-size: 1.45rem; color: #003a71; margin-bottom: 15px; line-height: 1.35; font-weight: 800; }
+        .pub-authors-main { font-size: 0.95rem; color: #555; margin-bottom: 15px; line-height: 1.6; }
 
-        .main-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px; }
-        .content-box { background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.2s ease; }
-        .content-box:hover { transform: translateY(-5px); }
-        .content-box-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #003a71; padding-bottom: 12px; margin-bottom: 20px; }
+        /* --- 4. Notice & Gallery Grid (간격 및 여백 확대) --- */
+        .main-content-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; /* 박스 사이 간격 확대 */
+            margin-bottom: 80px; /* 하단 여백 확대 */
+        }
+        .content-box { 
+            background: #fff; 
+            border: 1px solid #e1e4e8; 
+            border-radius: 12px; 
+            padding: 30px; /* 내부 여백 확대 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            height: fit-content;
+        }
+        .content-box-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid #003a71; 
+            padding-bottom: 12px; 
+            margin-bottom: 20px; 
+        }
         .content-box-header h3 { color: #003a71; margin: 0; font-size: 1.25rem; font-weight: 800; }
-        .btn-more { text-decoration: none; color: #00bcd4; font-size: 1.4rem; font-weight: bold; }
+        .btn-more { text-decoration: none; color: #00bcd4; font-size: 1.3rem; font-weight: bold; }
 
         .notice-list { list-style: none; padding: 0; margin: 0; }
-        .notice-list li { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid #f0f0f0; gap: 15px; }
-        .notice-list li a { 
-            text-decoration: none; color: #333; font-size: 0.95rem; transition: 0.2s; flex: 1; 
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; 
-        }
+        .notice-list li { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; gap: 15px; }
+        .notice-list li a { text-decoration: none; color: #333; font-size: 0.95rem; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
         .notice-list li a:hover { color: #00bcd4; font-weight: bold; }
         .notice-date { color: #999; font-size: 0.85rem; flex-shrink: 0; }
 
         .gallery-link { display: flex; gap: 20px; text-decoration: none; color: inherit; }
-        .gallery-link img { width: 170px; height: 115px; object-fit: cover; border-radius: 5px; border: 1px solid #eee; }
+        .gallery-link img { width: 180px; height: 125px; object-fit: cover; border-radius: 8px; border: 1px solid #eee; }
         .gallery-preview-text { flex: 1; }
-        .gallery-preview-text h4 { margin: 0 0 10px 0; color: #003a71; font-size: 1.15rem; line-height: 1.4; }
+        .gallery-preview-text h4 { margin: 0 0 10px 0; color: #003a71; font-size: 1.15rem; font-weight: bold; }
+        .gallery-preview-text p { font-size: 0.92rem; color: #666; line-height: 1.6; margin: 0; }
 
-        .link-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 60px; }
-        .card { height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: white; text-decoration: none; font-size: 1.5rem; font-weight: 800; position: relative; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 58, 113, 0.65); transition: 0.3s; }
-        .card:hover::before { background: rgba(0, 188, 212, 0.75); }
-        .card span { position: relative; z-index: 1; }
+        /* --- 5. Link Cards --- */
+        .link-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 80px; }
+        .card { 
+            height: 160px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 12px; 
+            color: white; 
+            text-decoration: none; 
+            font-size: 1.55rem; 
+            font-weight: 800; 
+            position: relative; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 58, 113, 0.6); transition: 0.3s; }
+        .card:hover::before { background: rgba(0, 188, 212, 0.7); }
+        .card span { position: relative; z-index: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+
+        @media (max-width: 768px) {
+            .hero-banner { height: 250px; }
+            .hero-banner h1 { font-size: 1.8rem; }
+            .main-content-grid, .link-cards, .pub-highlight-box { grid-template-columns: 1fr; flex-direction: column; }
+        }
     </style>
 </head>
 <body>
@@ -104,11 +153,11 @@
     </nav>
 </header>
 
-<section class="hero-banner">
-    <h1><span>MATERIALS SYNTHESIS</span> LABORATORY</h1>
-</section>
-
-
+<div class="hero-container">
+    <section class="hero-banner">
+        <h1><span>MATERIALS SYNTHESIS</span> LABORATORY</h1>
+    </section>
+</div>
 
 <div class="main-wrapper">
     <div class="latest-pub-container">
@@ -116,14 +165,16 @@
             <h3>LATEST PUBLICATION</h3>
             <a href="publications.html" class="btn-more">+</a>
         </div>
-        <a href="https://pubs.acs.org/doi/10.1021/acs.orglett.5c04299" target="_blank" class="pub-highlight-box">
+        <a href="https://doi.org/10.1021/acs.orglett.5c04299" target="_blank" class="pub-highlight-box">
             <div class="pub-img-side">
                 <img src="images/latest_paper.jpg" alt="Organic Letters 2026 Paper">
             </div>
             <div class="pub-info-side">
                 <span class="pub-journal">Organic Letters (2026)</span>
                 <h4 class="pub-title-main">Synergistic Fluoroalkyl and Electron-Rich Vinyl Units for Ionizing Radiation-Induced Cross-Linking</h4>
-                <p class="pub-authors-main">Gayoung Kim, Yejin Ku, Sung-Wook Hwang, <strong>Jin-Kyun Lee*</strong>, et al.</p>
+                <p class="pub-authors-main">
+                    Gayoung Kim, Yejin Ku, Sung-Wook Hwang, <strong>Jin-Kyun Lee*</strong>, Jiho Kim, Sangsul Lee, Yu Ha Jang, Seohyeon Lee, Byung Jun Jung, Chawon Koh, Tsunehiro Nishi, and Hyun-Woo Kim
+                </p>
                 <div style="margin-top: 20px; border-top: 1px solid #f0f0f0; padding-top: 15px;">
                     <span class="notice-date">Published: January 20, 2026</span>
                     <span style="margin-left: 20px; color: #00bcd4; font-size: 0.85rem; font-weight: bold;">DOI: 10.1021/acs.orglett.5c04299</span>
@@ -180,8 +231,11 @@
 </footer>
 
 <script>
+    // 공지사항 및 갤러리 통합 동기화 스크립트 (복구 및 강화)
     async function syncContent() {
         const parser = new DOMParser();
+
+        // 1. 공지사항 동기화
         const notices = document.querySelectorAll('#notice-sync-list li');
         for (let li of notices) {
             const a = li.querySelector('a');
@@ -189,6 +243,7 @@
             if (!url || url === "#") continue;
             try {
                 const res = await fetch(url);
+                if (!res.ok) throw new Error();
                 const html = await res.text();
                 const doc = parser.parseFromString(html, 'text/html');
                 const title = doc.querySelector('h3');
@@ -197,6 +252,34 @@
                 if (dateMatch) li.querySelector('.notice-date').innerText = dateMatch[0];
             } catch (e) { li.style.display = 'none'; }
         }
+
+        // 2. 갤러리 동기화
+        const galleryBox = document.querySelector('#gallery-sync-box .gallery-link');
+        try {
+            const res = await fetch('gallery_view/gallery_view_2.html');
+            if (!res.ok) throw new Error();
+            const html = await res.text();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const title = doc.querySelector('h3') ? doc.querySelector('h3').innerText : "Update";
+            const imgElement = doc.querySelector('.gallery-photo-box img') || doc.querySelector('img');
+            let imgSrc = "";
+            if (imgElement) {
+                const originalSrc = imgElement.getAttribute('src');
+                imgSrc = originalSrc.startsWith('../') ? originalSrc.substring(3) : originalSrc;
+            }
+            const boldMsg = doc.querySelector('strong') ? doc.querySelector('strong').innerText : "";
+            const dateMatch = doc.body.innerText.match(/\d{4}\.\s*\d{2}\.\s*\d{2}/);
+
+            galleryBox.innerHTML = `
+                <img src="${imgSrc}" alt="Latest Gallery" onerror="this.src='images/logo.png';">
+                <div class="gallery-preview-text">
+                    <h4>${title}</h4>
+                    <p><strong>${boldMsg}</strong></p>
+                    <span class="notice-date">${dateMatch ? dateMatch[0] : ""}</span>
+                </div>
+            `;
+        } catch (e) { console.log("Gallery sync failed."); }
     }
     window.addEventListener('DOMContentLoaded', syncContent);
 </script>
