@@ -254,3 +254,41 @@ nav ul li.dropdown:hover .dropdown-content {
     body { font-size: 14px; }
     h1 { font-size: 1.5rem; }
 }
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column !important; /* 수직 정렬 */
+        align-items: center !important;
+        text-align: center !important;
+        padding: 20px 10px !important;
+    }
+    .footer-info {
+        width: 100% !important;
+        line-height: 1.6; /* 줄 간격 확보 */
+        word-break: keep-all; /* 단어 단위 줄바꿈 */
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* 1. 그리드 시스템을 1열로 변경 */
+    .main-content-grid {
+        display: block !important; /* Grid 대신 Block으로 쌓기 */
+        width: 100% !important;
+    }
+
+    /* 2. 개별 박스(공지사항, 갤러리) 너비 최적화 */
+    .notice-box, .gallery-sync-box {
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 20px !important; /* 박스 간 간격 */
+        box-sizing: border-box !important; /* 패딩이 너비에 포함되도록 설정 */
+    }
+
+    /* 3. 내부 이미지 짤림 방지 */
+    .gallery-link img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
