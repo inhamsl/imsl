@@ -341,3 +341,25 @@ html, body {
         box-sizing: border-box !important;
     }
 }
+
+@media (max-width: 768px) {
+    /* 1. 졸업생 박스 레이아웃을 1열로 강제 전환 */
+    .alumni-grid, .members-grid {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .alumni-card, .member-box {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. ✅ 핵심: 이메일 텍스트 줄바꿈 허용 */
+    .member-info p, .alumni-email {
+        word-break: break-all !important; /* 박스 끝에서 강제로 줄바꿈 */
+        overflow-wrap: break-word !important;
+        font-size: 0.9rem !important; /* 모바일에서는 가독성을 위해 살짝 축소 */
+    }
+}
