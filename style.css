@@ -223,3 +223,34 @@ nav ul li.dropdown:hover .dropdown-content {
     width: 120px; 
     text-align: center;
 }
+
+/* 모바일용 스타일 (화면 너비 768px 이하) */
+@media (max-width: 768px) {
+    /* 1. 컨테이너 여백 조정 */
+    .hero-container, .main-wrapper, .footer-container {
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    /* 2. 갤러리/게시판 등 그리드를 1열로 변경 */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* 3. 메뉴(Nav) 세로 배열 또는 폰트 축소 */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* 4. 이미지 오버플로우 방지 */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 5. 폰트 크기 최적화 */
+    body { font-size: 14px; }
+    h1 { font-size: 1.5rem; }
+}
