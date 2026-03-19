@@ -292,3 +292,52 @@ nav ul li.dropdown:hover .dropdown-content {
         height: auto !important;
     }
 }
+
+@media (max-width: 768px) {
+    .hero-banner { height: 250px; }
+    .hero-banner h1 { font-size: 1.8rem; }
+    
+    /* 1. 그리드/플렉스 레이아웃을 1열로 변경 */
+    .main-content-grid, .link-cards, .pub-highlight-box { 
+        grid-template-columns: 1fr !important; 
+        flex-direction: column !important; 
+    }
+
+    /* 2. ✅ 핵심: 박스 사이의 세로 간격 추가 */
+    .content-box {
+        margin-bottom: 30px !important; /* 박스 사이를 30px 띄움 */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 마지막 박스는 아래 여백이 필요 없으므로 제거 (선택사항) */
+    .main-content-grid .content-box:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .gallery-link { flex-direction: column; text-align: center; }
+    .gallery-link img { width: 100%; height: auto; }
+}
+
+/* 전역 가로 스크롤 방지 */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* 가로로 넘치는 부분은 숨김 */
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 모든 요소의 크기 계산 방식 통일 */
+* {
+    box-sizing: border-box; /* 패딩과 테두리가 너비를 늘리지 않게 함 */
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        padding-top: 50px !important;    /* 상단 여백 추가 */
+        padding-bottom: 80px !important; /* 하단 여백 유지 */
+        box-sizing: border-box !important;
+    }
+}
