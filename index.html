@@ -304,7 +304,7 @@
         // 2. 갤러리 동기화
         const galleryBox = document.querySelector('#gallery-sync-box .gallery-link');
         try {
-            const res = await fetch('gallery_view/gallery_view_2.html');
+            const res = await fetch('gallery_view/gallery_view_3.html');
             if (!res.ok) throw new Error();
             const html = await res.text();
             const doc = parser.parseFromString(html, 'text/html');
