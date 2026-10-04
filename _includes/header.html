@@ -1,0 +1,19 @@
+<header>
+    <nav>
+        <a href="{{ '/index.html' | relative_url }}" class="logo"><img src="{{ '/images/logo.png' | relative_url }}" alt="MSL Logo" height="50"></a>
+        <ul>
+            <li><a href="{{ '/professor.html' | relative_url }}">PROFESSOR</a></li>
+            <li><a href="{{ '/research.html' | relative_url }}"{% if page.nav == "research" %} class="active"{% endif %}>RESEARCH</a></li>
+            <li><a href="{{ '/publications.html' | relative_url }}">PUBLICATIONS</a></li>
+            <li><a href="{{ '/people.html' | relative_url }}">MEMBERS</a></li>
+            <li class="dropdown">
+                <a href="#">BOARD ▼</a>
+                <div class="dropdown-content">
+                    <a href="{{ '/notice.html' | relative_url }}">Notice</a>
+                    <a href="{{ '/gallery.html' | relative_url }}">Gallery</a>
+                    <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,51 @@
+.member-section { margin-top: 50px; }
+.member-section h3 { 
+    color: #003a71; 
+    border-left: 5px solid #003a71; 
+    padding-left: 15px; 
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+} 
+
+/* 2열 격자 배치* */
+.member-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+}
+
+.member-card {
+    display: flex;
+    gap: 20px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.member-card:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-color: #003a71;
+}
+
+.member-photo img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 3px;
+}
+
+.member-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.member-info h4 { margin: 0 0 10px 0; color: #003a71; font-size: 1.2rem; }
+.member-info p { margin: 4px 0; font-size: 0.9rem; color: #444; line-height: 1.4; }
+
+/* Alumni 테이블 */
+.alumni-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
+.alumni-table th { background-color: #f8f9fa; border-top: 2px solid #003a71; border-bottom: 1px solid #dee2e6; padding: 12px; text-align: left; color: #003a71; }
+.alumni-table td { padding: 12px; border-bottom: 1px solid #eee; }
+
+@media (max-width: 768px) { .member-grid { grid-template-columns: 1fr; } }

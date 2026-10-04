@@ -1,153 +1,35 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://inhamsl.github.io/imsl/publications_presentations.html">
-    <meta charset="UTF-8">
-    <title>Publications - Presentations | MSL Inha</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* 기존 디자인 테마와 동일한 섹션 스타일 */
-        .cv-section { margin-top: 40px; }
-        .cv-section h4 { 
-            color: #003a71; 
-            border-bottom: 2px solid #003a71; 
-            padding-bottom: 10px; 
-            margin-bottom: 25px; 
-            font-size: 1.3rem;
-            font-weight: 900;
-        }
-
-        .year-section { margin-bottom: 45px; }
-        .year-label { 
-            font-size: 1.25rem; 
-            font-weight: 900; 
-            color: #00bcd4; 
-            margin-bottom: 15px; 
-            display: block;
-            border-left: 4px solid #00bcd4;
-            padding-left: 12px;
-        }
-
-        .pres-list { list-style: none; padding: 0; margin-left: 5px; }
-        .pres-list li { 
-            margin-bottom: 18px; 
-            line-height: 1.7; 
-            color: #444; 
-            font-size: 0.95rem;
-            position: relative;
-            padding-left: 20px;
-        }
-        /* 사각형 불렛 포인트 */
-        .pres-list li::before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-            color: #003a71;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <nav>
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="MSL Logo" height="50"></a>
-        <ul>
-            <li><a href="professor.html">PROFESSOR</a></li>
-            <li><a href="research.html">RESEARCH</a></li>
-            <li><a href="publications.html">PUBLICATIONS</a></li>
-            <li><a href="people.html">MEMBERS</a></li>
-            <li class="dropdown">
-                <a href="#">BOARD ▼</a>
-                <div class="dropdown-content">
-                    <a href="notice.html">Notice</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
-
+---
+layout: default
+title: Publications - Presentations
+css: [presentations]
+---
+{%- comment -%}
+  학회 발표 목록 — _data/presentations.yml (Pages CMS "학회 발표")
+  파일에는 오래된 순서로 쌓이고, 여기서는 연도별·최신순으로 보여줘요.
+{%- endcomment -%}
+{%- assign years = site.data.presentations.presentations | group_by: "year" | sort: "name" | reverse -%}
 <div class="main-wrapper">
     <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">PUBLICATIONS</h2>
 
     <div class="pub-tabs">
-        <a href="publications.html" class="pub-tab">Papers</a>
-        <a href="publications_patents.html" class="pub-tab">Patents</a>
-        <a href="publications_presentations.html" class="pub-tab active">Presentations</a>
+        <a href="{{ '/publications.html' | relative_url }}" class="pub-tab">Papers</a>
+        <a href="{{ '/publications_patents.html' | relative_url }}" class="pub-tab">Patents</a>
+        <a href="{{ '/publications_presentations.html' | relative_url }}" class="pub-tab active">Presentations</a>
     </div>
 
     <div class="cv-section">
         <h4>Conference Presentations</h4>
-        
-        <div class="year-section">
-            <span class="year-label">2017</span>
-            <ul class="pres-list">
-                <li>Woo-Won Park, Jongchan Son, O Jun Kwon, Byung Jun Jung and Jin-Kyun Lee, "Photolithographic Pixel Patterning for Organic Light-Emitting Diodes with Highly Fluorinated Photore...", The 28th International Conference on Molecular Electronics and Devices (ICME&D), Sogang University, Seoul, Korea (2017).</li>
-            </ul>
-        </div>
+{%- for year in years %}
 
         <div class="year-section">
-            <span class="year-label">2016</span>
+            <span class="year-label">{{ year.name }}</span>
             <ul class="pres-list">
-                <li>Jun-Beom PARK, Jong-Min KIM, Sang-Ho LEE, Jin-Kyun LEE, "Preparation of Fabric-Hydrogel Composite Membranes for Microalgae Mass Culture," IUPAC-PSK40, ICC Jeju, Korea (2016).</li>
-                <li>O Jun Kwon, Jongchan Son, Seung Gun Chae, Dong Jun Lee, Jun Han Bae, Jin-Kyun Lee and Byung Jun Jung, "Characteristics of Organic Light-Emitting Diodes using Fluorinated Photoresist Process on the Hole T...", The 16th IMID, ICC Jeju, Korea (2016).</li>
-                <li>Jongchan Son, O Jun Kwon, Woo-Won Park, Seok-Heon Jung, Byung Jun Jung and Jin-Kyun Lee, "Highly Soluble Fluorinated Imaging Materials for Micropatterned Organic Light-Emitting Diodes," The 16th IMID, ICC Jeju, Korea (2016).</li>
-                <li>S.-H. Jung, M.-S. Kim, S.-G. Park, J.-K. Lee, "Highly Fluorinated Methacrylate Polymer for Micro-Contact Printing of Non-Fluorinated Materials," 2016 Fluoropolymer, New Orleans, USA (2016).</li>
-                <li>J.-K. Lee, S.-H. Jung, A. Homes, C. K. Ober, "Diaryl ethers and poly-conjugated arenes synthesized by the help of fluorine atoms," 6th Korea-Japan-China Joint Seminar on Fluorine Chemistry, Changwon, Korea (2016).</li>
-                <li>Jin-kyun Lee, "High mobility semiconducting polymers composed of all electron-accepting monomer units," The 27th ICME&D, Busan National University, Busan, Korea (2016).</li>
-                <li>Youngtae Kim, Mi-Seon Kim, Jin-Kyun Lee, "Development of highly fluorinated high-k hybrid nanoparticle solution for fabricating dielectric lay...", The 27th ICME&D, Busan National University, Busan, Korea (2016).</li>
-                <li>Jongchan Son, Woo-Won Park, Jin-Kyun Lee, "Highly Soluble Fluorinated Imaging Materials for Micropatterned Organic Light-Emitting Diodes," The 27th ICME&D, Busan National University, Busan, Korea (2016).</li>
+{%- assign items = year.items | reverse %}
+{%- for p in items %}
+                <li>{{ p.text }}</li>
+{%- endfor %}
             </ul>
         </div>
-
-        <div class="year-section">
-            <span class="year-label">2015</span>
-            <ul class="pres-list">
-                <li>Youngtae Kim, Jin-Kyun Lee, "Investigation of Solution-Processable Fluorinated Barium Titanate Nanomaterials for Electronic Devic...", IUPAC-2015, BEXCO, Busan, Korea (2015).</li>
-                <li>Youngtae Kim, Jin-Kyun Lee, "Development of Fluorous Dielectric Nanoparticles for Printed Thin Film Transistors," IUPAC-2015, BEXCO, Busan, Korea (2015).</li>
-                <li>Mi-Seon Kim, Youngtae Kim, Jongchan Son, Jin-Kyun Lee, "Solution-processable Fluorous-Inorganic Hybrid Nanocomposites for Electronics Application," 21th ISFC & ISoFT’15, Como, Italy (2015).</li>
-                <li>Hye-Ri Kim, Youngtae Kim, Jongchan Son, Jin-Kyun Lee, "Semiconductor Nanocrystals in Fluorous Liquids for the Construction of Light-emitting Diodes by Solu...", 21th ISFC & ISoFT’15, Como, Italy (2015).</li>
-                <li>Jong-Min Kim, Younghoon Choi, Myoung-Soo Kim, Se-Geun Park, Jin-Kyun Lee, "Highly Fluorinated Methacrylate Polymer for Micro-Contact Printing of Non-Fluorinated Materials," 21th ISFC & ISoFT’15, Como, Italy (2015).</li>
-                <li>Jin-Kyun Lee, Youngtae Kim, Jongchan Son, Seok-Heon Jung, Kwang Hee Lee, "Fluorous Materials Chemistry for Greater Progress of Organic Electronics," 21th ISFC & ISoFT’15, Como, Italy (2015).</li>
-                <li>Areum Lee, Youngtae Kim, Jongchan Son, Jin-Kyun Lee, "Fluorinated Polymer Photoresists containing Anthracene Moieties for Organic Electronic Devices," 21th ISFC & ISoFT’15, Como, Italy (2015).</li>
-                <li>Youngtae Kim, Jongchan Son, Jin-Kyun Lee, "Highly fluorinated high-k hybrid dielectric nano materials for solution-processed electronic devices," 250th ACS National Meeting, Boston, USA (2015).</li>
-                <li>Seok-Heon Jung, Youngtae Kim, Jongchan Son, Jin-Kyun Lee, "Fluororous liquid-soluble Quantum-Dots for the construction of solution-processed light emitting dio...", 250th ACS National Meeting, Boston, USA (2015).</li>
-                <li>Jongchan Son, Youngtae Kim, Jin-Kyun Lee, "Fluorous solvent-soluble imaging materials by photodimerization using anthracene moieties," 250th ACS National Meeting, Boston, USA (2015).</li>
-            </ul>
-        </div>
-
-        <div class="year-section">
-            <span class="year-label">2014</span>
-            <ul class="pres-list">
-                <li>Seok-Heon Jung, Seungyong Lee, Youngtae Kim, Younghoon Choi, Jongchan Son, Jin-Kyun Lee, "Synthesis and Characterization of Electron Deficient Conjugated Polymers Achieved by Benzotriazolyl ...", 2014 MRS Fall Meeting, San Francisco, USA (2014).</li>
-                <li>Jongchan Son, Youngtae Kim, Jin-Kyun Lee, "Inert fluorous liquids for smart processing of electronically and biologically active materials," The 5th CJK Joint Seminar on Fluorine Chemistry, Shanghai, China (2014).</li>
-                <li>Seok-Heon Jung, Jin-Kyun Lee, "Patterning of Carbon Nanotubes and PEDOT:PSS composite Films for Transparent Electrodes by Spray Lif...", 40th MNE, Lausanne, Switzerland (2014).</li>
-                <li>Seok-Heon Jung, Jin-Kyun Lee, "Preparation of Superhydrophobic Surface Structure using Replica imprinting Process for Self-Cleaning...", 40th MNE, Lausanne, Switzerland (2014).</li>
-                <li>Jongchan Son, Youngtae Kim, Hye-Jin Park, Seok-Heon Jung, Jin-Kyun Lee, "Synthesis and Characterization of electron acceptor conjugated polymers based on Benzotriazolyl Bis(...", Macro 2014, Chiang Mai, Thailand (2014).</li>
-                <li>Younghoon Choi, Seungyong Lee, Youngtae Kim, Jin-Kyun Lee, "Preparation of Fabric-Hydrogel Composite Membranes for Microalgae Mass Culture," Macro 2014, Chiang Mai, Thailand (2014).</li>
-                <li>Tae-Seung Park, Youngtae Kim, Heejin Kim, Jin-Kyun Lee, "Development of highly fluorinated high k dielectric hybrid material solution for the application of ...", Macro 2014, Chiang Mai, Thailand (2014).</li>
-                <li>Seok-Heon Jung, Jin-Kyun Lee, "Synthesis and Characteriazation of Semicondcuting Polymers Achieved by Benzotriazolyl Bis(trifluorob...", TNT Japan 2014, Tokyo, Japan (2014).</li>
-                <li>Seungyong Lee, Seok-Heon Jung, Jin-Kyun Lee, "Orthogonal processing for soluble-processable quantum dot light emitting devices," TNT Japan 2014, Tokyo, Japan (2014).</li>
-                <li>Hye-Jin Park, Seok-Heon Jung, Jin-Kyun Lee, "Fluorous Solvent-Soluble Photoresists based on a Photodimerization Chemistry," TNT Japan 2014, Tokyo, Japan (2014).</li>
-                <li>Heejin Kim, Seok-Heon Jung, Jin-Kyun Lee, "Development of highly fluorinated high k dielectric hybrid material solution for the application of ...", TNT Japan 2014, Tokyo, Japan (2014).</li>
-            </ul>
-        </div>
+{%- endfor %}
     </div>
 </div>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-            Department of Polymer Science and Engineering, Inha University<br>
-            669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
-        </div>
-        <div style="text-align: right;">
-            Tel: +82-32-860-8769 (Lab)<br>
-            Copyright © 2026 MSL. All Rights Reserved.
-        </div>
-    </div>
-</footer>
-</body>
-</html>

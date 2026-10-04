@@ -1,0 +1,46 @@
+# 인하대학교 재료합성연구실(MSL) 홈페이지 — Jekyll 설정
+# GitHub Pages가 이 파일을 읽어서 사이트를 자동으로 만들어요.
+# 주소(baseurl)는 GitHub Pages가 알아서 정하므로 적지 않습니다.
+# (나중에 학교 도메인을 연결해도 이 파일은 그대로 두면 돼요.)
+
+title: 인하대학교 재료합성연구실
+description: 인하대학교 고분자공학과 재료합성연구실(Materials Synthesis Laboratory) 공식 홈페이지
+timezone: Asia/Seoul
+future: true
+theme: null
+
+plugins:
+  - jekyll-sitemap
+
+# 공지사항(_notices)과 갤러리(_gallery) 글 하나 = 파일 하나
+# 주소는 예전과 같이 notice_view/xxx.html, gallery_view/xxx.html 로 만들어져요.
+collections:
+  notices:
+    output: true
+    permalink: /notice_view:path.html
+  gallery:
+    output: true
+    permalink: /gallery_view:path.html
+
+defaults:
+  - scope:
+      path: ""
+      type: notices
+    values:
+      layout: notice
+      css: [notice-view]
+  - scope:
+      path: ""
+      type: gallery
+    values:
+      layout: gallery
+      css: [gallery-view]
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - imsl
+  - "_backup_*"

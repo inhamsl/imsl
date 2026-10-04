@@ -1,0 +1,68 @@
+.view-container {
+    margin-top: 30px;
+    border-top: 2px solid #003a71;
+    border-bottom: 1px solid #ddd;
+}
+.view-header {
+    background-color: #f8f9fa;
+    padding: 25px 20px;
+    border-bottom: 1px solid #eee;
+}
+.view-header h3 {
+    margin: 0 0 10px 0;
+    color: #003a71;
+    font-size: 1.5rem;
+}
+.view-info {
+    font-size: 0.9rem;
+    color: #888;
+}
+.view-info span {
+    margin-right: 20px;
+}
+.view-content {
+    padding: 50px 25px;
+    line-height: 2.0;
+    color: #444;
+    min-height: 350px;
+    font-size: 1.05rem;
+}
+.view-footer {
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.btn-list {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #003a71;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+    font-weight: bold;
+}
+.btn-list:hover {
+    background-color: #00bcd4;
+}
+/* 이미지 스타일 */
+.notice-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 30px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Pages CMS로 새로 넣은 사진도 기존 공지 사진과 같은 모양으로 */
+.view-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 30px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.view-content p { margin: 0 0 1em 0; }

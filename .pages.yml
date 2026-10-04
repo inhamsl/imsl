@@ -1,0 +1,315 @@
+# Pages CMS 설정 파일 — https://app.pagescms.org 에서 홈페이지를 편집할 때 쓰는 메뉴 구성
+# (이 파일은 보통 건드릴 필요 없어요. 메뉴를 바꾸고 싶을 때만 수정하세요.)
+
+media:
+  name: images
+  label: 사진 보관함
+  input: images
+  output: /images
+  rename: random
+  extensions: [jpg, jpeg, png, gif, webp, svg]
+
+settings:
+  content:
+    merge: true
+
+content:
+  # ------------------------------------------------------------ 게시판
+  - name: board
+    label: 게시판
+    type: group
+    items:
+      - name: notices
+        label: 공지사항
+        description: 새 글은 오른쪽 위 "Add an entry"로 만들어요. 저장하면 1~2분 뒤 홈페이지(공지 목록·메인 화면)에 자동으로 올라가요.
+        type: collection
+        path: _notices
+        filename: "{year}-{month}-{day}-{hour}{minute}{second}.html"
+        view:
+          fields: [title, date]
+          primary: title
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 제목
+            type: string
+            required: true
+          - name: date
+            label: 날짜
+            type: date
+            required: true
+          - name: author
+            label: 작성자
+            description: 비워두면 "MSL Webmaster"로 표시돼요.
+            type: string
+          - name: body
+            label: 본문
+            description: 사진은 본문 안에 바로 넣을 수 있어요(이미지 버튼).
+            type: rich-text
+            options:
+              format: html
+              path: images/notice
+
+      - name: gallery
+        label: 갤러리
+        description: 사진 한 장 + 짧은 설명으로 올라가요. 메인 화면에는 가장 최근 글이 자동으로 보여요.
+        type: collection
+        path: _gallery
+        filename: "{year}-{month}-{day}-{hour}{minute}{second}.html"
+        view:
+          fields: [title, date]
+          primary: title
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 제목
+            type: string
+            required: true
+          - name: date
+            label: 날짜
+            description: 여러 날 행사면 마지막 날을 넣어요.
+            type: date
+            required: true
+          - name: start_date
+            label: 시작 날짜
+            description: 여러 날 행사일 때만 첫날을 넣어요. (하루짜리면 비워두기)
+            type: date
+            default: ""
+          - name: image
+            label: 사진
+            description: 가로 사진을 추천해요. 휴대폰 원본보다 카톡으로 한 번 보낸 사진(1~2MB)이 적당해요.
+            type: image
+            required: true
+            options:
+              path: images/gallery
+          - name: heading
+            label: 사진 아래 굵은 제목
+            description: 비워두면 위의 제목이 그대로 쓰여요.
+            type: string
+          - name: description
+            label: 설명
+            description: 엔터로 줄을 바꾸면 홈페이지에서도 그대로 줄이 바뀌어요.
+            type: text
+
+  # ------------------------------------------------------------ 연구 실적
+  - name: research_output
+    label: 연구 실적
+    type: group
+    items:
+      - name: papers
+        label: 논문
+        description: 새 논문은 맨 아래 "Add an item"으로 추가하세요. 홈페이지에서는 연도별·최신순으로 자동 정렬돼요.
+        type: file
+        path: _data/papers.yml
+        fields:
+          - name: papers
+            label: 논문 목록
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{year} · {title}"
+            fields:
+              - name: year
+                label: 연도
+                type: number
+                required: true
+              - name: title
+                label: 논문 제목
+                type: string
+                required: true
+              - name: authors
+                label: 저자
+                description: "예: Gayoung Kim, Jinseok Lee, Jin-Kyun Lee*"
+                type: string
+                required: true
+              - name: journal
+                label: 저널 (약어)
+                description: "예: ACS Appl. Polym. Mater."
+                type: string
+                required: true
+              - name: citation
+                label: 권·호·페이지
+                description: "저널 이름 뒤에 붙는 부분. 예: 2026, 8, 10, 7468-7478"
+                type: string
+              - name: doi
+                label: DOI 또는 논문 링크
+                description: "넣으면 제목을 눌렀을 때 논문 페이지로 이동해요. 예: 10.1021/acs.oprd.6c00101"
+                type: string
+
+      - name: patents
+        label: 특허
+        description: 새 특허는 맨 아래 "Add an item"으로 추가하세요. 홈페이지에서는 최신순(맨 아래 항목이 맨 위)으로 보여요.
+        type: file
+        path: _data/patents.yml
+        fields:
+          - name: patents
+            label: 특허 목록
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{info} · {title}"
+            fields:
+              - name: title
+                label: 특허 제목
+                type: string
+                required: true
+              - name: inventors
+                label: 발명자
+                description: "예: 이진균, 구예진, 김가영"
+                type: string
+              - name: info
+                label: 국가·상태·번호 (날짜)
+                description: "예: 한국, 등록, 1028034110000 (2025.04.29)"
+                type: string
+
+      - name: presentations
+        label: 학회 발표
+        description: 새 발표는 맨 아래 "Add an item"으로 추가하세요. 홈페이지에서는 연도별·최신순으로 보여요.
+        type: file
+        path: _data/presentations.yml
+        fields:
+          - name: presentations
+            label: 발표 목록
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{year} · {text}"
+            fields:
+              - name: year
+                label: 연도
+                type: number
+                required: true
+              - name: text
+                label: 발표 정보 (저자, "제목", 학회, 장소 (연도).)
+                type: text
+                required: true
+
+  # ------------------------------------------------------------ 구성원
+  - name: people
+    label: 구성원
+    type: group
+    items:
+      - name: members
+        label: 현재 구성원
+        description: 홈페이지에는 구분별(박사과정·석사과정 등)로 이 순서대로 보여요. 졸업하면 여기서 지우고 "졸업생"에 추가하세요.
+        type: file
+        path: _data/members.yml
+        fields:
+          - name: members
+            label: 구성원 목록
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name_ko} ({role})"
+            fields:
+              - name: role
+                label: 구분
+                type: select
+                required: true
+                default: ms
+                options:
+                  values:
+                    - { value: postdoc, label: 박사후연구원 }
+                    - { value: phd, label: 박사과정 }
+                    - { value: ms, label: 석사과정 }
+                    - { value: undergrad, label: 학부연구생 }
+              - name: name_ko
+                label: 이름 (한글)
+                type: string
+                required: true
+              - name: name_en
+                label: 이름 (영문)
+                description: "예: Jinseok Lee"
+                type: string
+              - name: photo
+                label: 사진
+                description: 세로 사진(증명사진 비율)을 추천해요.
+                type: image
+                options:
+                  path: images/people
+              - name: research
+                label: 연구 분야
+                description: "예: Synthesis of EUV resists"
+                type: string
+              - name: email
+                label: 이메일
+                type: string
+
+      - name: alumni
+        label: 졸업생
+        description: 새 졸업생은 맨 아래 "Add an item"으로 추가하세요. 홈페이지 표에서는 맨 위에 보여요.
+        type: file
+        path: _data/alumni.yml
+        fields:
+          - name: alumni
+            label: 졸업생 목록
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{year} · {name} ({degree})"
+            fields:
+              - name: name
+                label: 이름
+                type: string
+                required: true
+              - name: degree
+                label: 학위
+                description: "예: MSc, Ph.D"
+                type: string
+              - name: year
+                label: 졸업년도
+                type: number
+              - name: position
+                label: 현재 소속 / 비고
+                description: "예: SK hynix (모르면 비워두기)"
+                type: string
+              - name: email
+                label: 이메일
+                type: string
+
+  # ------------------------------------------------------------ 메인 화면
+  - name: home
+    label: 메인 화면 - 대표 논문
+    description: 메인 화면 맨 위 "LATEST PUBLICATION" 상자에 보이는 논문이에요.
+    type: file
+    path: _data/home.yml
+    fields:
+      - name: latest_paper
+        label: 대표 논문
+        type: object
+        fields:
+          - name: title
+            label: 논문 제목
+            type: string
+            required: true
+          - name: authors
+            label: 저자
+            description: 이름 뒤에 *가 있으면(교신저자) 자동으로 굵게 표시돼요.
+            type: string
+          - name: journal
+            label: 저널 (전체 이름)
+            description: "예: Organic Process Research & Development"
+            type: string
+          - name: published
+            label: 출판일
+            type: date
+          - name: link
+            label: DOI 또는 논문 링크
+            description: "예: https://doi.org/10.1021/acs.oprd.6c00101"
+            type: string
+          - name: image
+            label: 대표 그림 (TOC/표지)
+            type: image
+            options:
+              path: images

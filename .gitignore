@@ -1,0 +1,21 @@
+# 이 저장소는 공개(Public)예요. 비밀번호·복구 코드·개인 정보 파일은 절대 넣지 마세요.
+*recovery-codes*
+*password*
+*.secret
+.env
+
+# Windows / OneDrive / Mac이 자동으로 만드는 파일
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Jekyll 미리보기(빌드) 결과물
+_site/
+.jekyll-cache/
+.sass-cache/
+
+# 실수로 생긴 중첩 폴더
+imsl/
+
+# 구조 변경 전 옛 파일 백업 (로컬 보관용, 깃허브에 올리지 않음)
+_backup_*/

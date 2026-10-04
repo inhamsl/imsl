@@ -1,91 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://inhamsl.github.io/imsl/notice.html">
-    <meta charset="UTF-8">
-    <title>Notice | MSL Inha</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* 게시판 전용 스타일 */
-        .notice-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            font-size: 0.95rem;
-            margin-bottom: 80px; /* 하단 여백 추가 */
-        }
-
-        .notice-table thead tr {
-            background-color: #f8f9fa;
-            border-top: 2px solid #003a71;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .notice-table th {
-            padding: 15px 10px;
-            color: #003a71;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .notice-table td {
-            padding: 15px 10px;
-            border-bottom: 1px solid #eee;
-            color: #444;
-        }
-
-        /* 제목 왼쪽 정렬 및 링크 스타일 */
-        .notice-table td.title {
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .notice-table td.title a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.2s;
-            display: block; /* 클릭 영역 확대 */
-        }
-
-        .notice-table td.title a:hover {
-            color: #00bcd4;
-            text-decoration: underline;
-        }
-
-        /* 행 마우스 오버 효과 */
-        .notice-table tbody tr:hover {
-            background-color: #fcfcfc;
-        }
-
-        /* 번호, 날짜 중앙 정렬 */
-        .notice-table td.center {
-            text-align: center;
-            color: #888;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <nav>
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="MSL Logo" height="50"></a>
-        <ul>
-            <li><a href="professor.html">PROFESSOR</a></li>
-            <li><a href="research.html">RESEARCH</a></li>
-            <li><a href="publications.html">PUBLICATIONS</a></li>
-            <li><a href="people.html">MEMBERS</a></li>
-            <li class="dropdown">
-                <a href="#">BOARD ▼</a>
-                <div class="dropdown-content">
-                    <a href="notice.html">Notice</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
-
+---
+layout: default
+title: Notice
+css: [notice]
+---
+{%- comment -%} 공지사항 목록 — _notices 폴더의 글을 날짜 최신순으로 자동 표시 {%- endcomment -%}
+{%- assign notices = site.notices | reverse -%}
+{%- assign total = notices | size -%}
 <div class="main-wrapper">
     <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">NOTICE</h2>
 
@@ -98,116 +18,15 @@
             </tr>
         </thead>
         <tbody>
-
+{%- for notice in notices %}
             <tr>
-                <td class="center">13</td>
+                <td class="center">{{ total | minus: forloop.index0 }}</td>
                 <td class="title">
-                    <a href="notice_view/notice_view_13.html">인하대 재료합성연구실, 과기부 주관 2025 안전관리 우수연구실 인증제 취득</a>
+                    <a href="{{ notice.url | relative_url }}">{{ notice.title }}</a>
                 </td>
-                <td class="center">2026-02-12</td>
-            </tr>       
-
-            <tr>
-                <td class="center">12</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_12.html">김가영 박사과정 2025년 한국디스플레이산업협회 우수논문상 수상</a>
-                </td>
-                <td class="center">2025-12-18</td>
-            </tr>            
-
-<tr>
-                <td class="center">11</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_11.html">인하대, 삼성전자와 하이-NA EUV용 포토레지스트 공동 개발</a>
-                </td>
-                <td class="center">2025-07-18</td>
+                <td class="center">{{ notice.date | date: "%Y-%m-%d" }}</td>
             </tr>
-            <tr>
-                <td class="center">10</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_10.html">제31회 삼성휴먼테크논문대상 수상 소식</a>
-                </td>
-                <td class="center">2025-05-05</td>
-            </tr>
-            <tr>
-                <td class="center">9</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_9.html">‘반도체 소재연구 분야 전문가’, 이진균 고분자공학과 교수</a>
-                </td>
-                <td class="center">2018-02-02</td>
-            </tr>
-            <tr>
-                <td class="center">8</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_8.html">박사과정학생 모집 공고</a>
-                </td>
-                <td class="center">2017-08-07</td>
-            </tr>
-            <tr>
-                <td class="center">7</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_7.html">정석헌 박사과정 2015년 한국공업화학회 춘계 학술대회 우수논문상 수상</a>
-                </td>
-                <td class="center">2017-08-07</td>
-            </tr>
-            <tr>
-                <td class="center">6</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_6.html">정석헌 박사과정 2016년 Patent Registration Recognition Award</a>
-                </td>
-                <td class="center">2017-08-07</td>
-            </tr>
-            <tr>
-                <td class="center">5</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_5.html">정석헌 박사과정 2015년도 2학기 우수논문상 수상</a>
-                </td>
-                <td class="center">2017-08-07</td>
-            </tr>
-            <tr>
-                <td class="center">4</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_4.html">최영훈 석사과정 MACRO2014 학회 Macro 2014 Best Poster Award 수상</a>
-                </td>
-                <td class="center">2017-08-07</td>
-            </tr>
-            <tr>
-                <td class="center">3</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_3.html">‘인천시민 과학나들이’ 네 번째 지역사회 과학 강연 개최</a>
-                </td>
-                <td class="center">2017-08-07</td>
-            </tr>
-            <tr>
-                <td class="center">2</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_2.html">정석헌 박사과정, ACS Division of Polymer Chemistry 우수포스터상 입상</a>
-                </td>
-                <td class="center">2017-08-17</td>
-            </tr>
-            <tr>
-                <td class="center">1</td>
-                <td class="title">
-                    <a href="notice_view/notice_view_1.html">	고분자공학과 이진균 교수‧정석헌 학생, 화학 및 재료분야 국제 학술지 논문 게재</a>
-                </td>
-                <td class="center">2017-07-31</td>
-            </tr>
+{%- endfor %}
         </tbody>
     </table>
 </div>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-            Department of Polymer Science and Engineering, Inha University<br>
-            669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
-        </div>
-        <div style="text-align: right;">
-            Tel: +82-32-860-8769 (Lab)<br>
-            Copyright © 2026 MSL. All Rights Reserved.
-        </div>
-    </div>
-</footer>
-</body>
-</html>

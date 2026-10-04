@@ -1,0 +1,267 @@
+alumni:
+  - name: 김영태
+    degree: Ph.D candidate
+    email: hellpo@naver.com
+  - name: 김대희
+    degree: MSc
+    year: 2013
+    position: LG display
+    email: kimdaehee21@gmail.com
+  - name: 김민철
+    degree: MSc
+    year: 2013
+    position: Yonsei university, Ph. D course
+    email: gromit123@naver.com
+  - name: 김수현
+    degree: MSc
+    year: 2013
+    position: LG display
+    email: tnguso214@naver.com
+  - name: 김대영
+    degree: MSc
+    year: 2014
+    position: Hyosung
+    email: kdy871205@hyosung.com
+  - name: 지중휘
+    degree: MSc
+    year: 2014
+    position: Kukdo Chemical
+    email: jjhjoa@naver.com
+  - name: 이지원
+    degree: MSc
+    year: 2014
+    position: Huvis
+    email: saniel@huvis.com
+  - name: 박태승
+    degree: MSc
+    year: 2015
+    position: LG Chem
+    email: ptae2000@naver.com
+  - name: 김희진
+    degree: MSc
+    year: 2015
+    position: SK hynix
+    email: bsfam1234@gmail.com
+  - name: 박혜진
+    degree: MSc
+    year: 2015
+    position: Lotte Chemical
+    email: hyejin6209@naver.com
+  - name: 이승용
+    degree: MSc
+    year: 2015
+    position: Hyosung
+    email: leewhite0412@naver.com
+  - name: 최영훈
+    degree: MSc
+    year: 2016
+    position: Kolmar Korea
+    email: hoon2871@naver.com
+  - name: 김종민
+    degree: MSc
+    year: 2017
+    position: KAIST, Ph. D course
+    email: jmwrd@naver.com
+  - name: 김혜리
+    degree: MSc
+    year: 2017
+    position: SK Innovation
+    email: khl8953@naver.com
+  - name: 김미선
+    degree: MSc
+    year: 2017
+    position: LG Chem
+    email: rlaaltjs430@naver.com
+  - name: 이아름
+    degree: MSc
+    year: 2017
+    position: Samsung Display
+    email: areum920526@naver.com
+  - name: 박우원
+    degree: MSc
+    year: 2018
+    position: LG Chem
+    email: mild_demon11@naver.com
+  - name: 박준범
+    degree: MSc
+    year: 2018
+    position: Hyosung
+    email: qsef9099@naver.com
+  - name: 정석헌
+    degree: Ph.D
+    year: 2018
+    position: SK hynix
+    email: haha2429@naver.com
+  - name: 권호영
+    degree: Ph.D
+    year: 2018
+    position: U Chem
+    email: ceo@u-chem.co.kr
+  - name: 이상호
+    degree: MSc
+    year: 2018
+    position: LG Chem
+    email: 511489@naver.com
+  - name: 김미소
+    degree: MSc
+    year: 2019
+    position: LG display
+    email: qsef9099@naver.com
+  - name: 강새은
+    degree: MSc
+    year: 2019
+    position: HP Korea
+    email: rkdtodms0216@naver.com
+  - name: 안진영
+    degree: MSc
+    year: 2019
+    position: Samsung Electronics
+    email: asdffdsa72@naver.com
+  - name: 원종인
+    degree: MSc
+    year: 2020
+    position: Samsung Electronics
+    email: no2608@naver.com
+  - name: 문정석
+    degree: MSc
+    year: 2020
+    position: Samsung Electronics
+    email: mjs428@naver.com
+  - name: 박근우
+    degree: MSc
+    year: 2020
+    position: Samsung Electronics
+    email: rmsdn0112@naver.com
+  - name: 한재훈
+    degree: MSc
+    year: 2020
+    position: KCI Limited
+    email: gkswo07@naver.com
+  - name: 손종찬
+    degree: Ph.D
+    year: 2020
+    position: SK hynix
+    email: sonjc88@naver.com
+  - name: 박춘희
+    degree: MSc
+    year: 2021
+    position: Samsung Electronics
+    email: nhd8991@naver.com
+  - name: 이세진
+    degree: MSc
+    year: 2021
+    position: Dongwoo Fine-Chem
+    email: try887@naver.com
+  - name: 박한빛
+    degree: MSc
+    year: 2021
+    position: KC Tech
+    email: sia0807@naver.com
+  - name: 오현택
+    degree: Ph.D
+    year: 2021
+    position: SK Materials
+    email: oht3431@gmail.com
+  - name: 김준일
+    degree: MSc
+    year: 2022
+    position: Samsung Electronics
+    email: wnsdlf1068@naver.com
+  - name: 최승수
+    degree: MSc
+    year: 2022
+    position: LG Chem
+    email: css5452@naver.com
+  - name: 김지연
+    degree: MSc
+    year: 2022
+    position: LG Energy Solution
+    email: crasif@naver.com
+  - name: 우지훈
+    degree: MSc
+    year: 2022
+    position: Hanwha Solutions
+    email: ww9953@naver.com
+  - name: 권기영
+    degree: MSc
+    year: 2023
+    position: Samsung Electronics
+    email: msm1031@naver.com
+  - name: 임병진
+    degree: MSc
+    year: 2023
+    position: LG Electronics
+    email: aaa136@naver.com
+  - name: 안형주
+    degree: MSc
+    year: 2023
+    position: Samsung Electronics
+    email: hjhj9692@naver.com
+  - name: 최민규
+    degree: MSc
+    year: 2023
+    position: Samsung Electronics
+    email: choimk1996@naver.com
+  - name: 최효은
+    degree: MSc
+    year: 2024
+    position: LG Electronics
+    email: gydms707@naver.com
+  - name: 김민승
+    degree: MSc
+    year: 2024
+    position: Samsung Electronics
+    email: kms21144@naver.com
+  - name: 이규영
+    degree: MSc
+    year: 2024
+    position: Kyungshin
+    email: dlrbdud23@gmail.com
+  - name: 위규찬
+    degree: MSc
+    year: 2024
+    position: Miwon Commercial
+    email: poseidon9481@naver.com
+  - name: 신상민
+    degree: MSc
+    year: 2024
+    position: Nexen Tire
+    email: ssm1599@naver.com
+  - name: 황성욱
+    degree: MSc
+    year: 2025
+    position: SK hynix
+    email: swhwang@inha.edu
+  - name: 진유진
+    degree: MSc
+    year: 2025
+    position: LG Electronics
+    email: jyj000528@naver.com
+  - name: 전수빈
+    degree: MSc
+    year: 2025
+    position: Samsung Electronics
+    email: sb1825@naver.com
+  - name: 권유정
+    degree: MSc
+    year: 2025
+    position: Applied materials
+    email: kyj123@inha.edu
+  - name: 김준식
+    degree: MSc
+    year: 2026
+    position: SK hynix
+    email: zzundor_326@naver.com
+  - name: 구예진
+    degree: Ph.D
+    year: 2025
+    position: IMEC Post-doc
+    email: yjku0424@gmail.com
+  - name: 정예원
+    degree: MSc
+    year: 2026
+    email: jyw196@naver.com
+  - name: 유수영
+    degree: MSc
+    year: 2026
+    email: dbtndud0922@naver.com

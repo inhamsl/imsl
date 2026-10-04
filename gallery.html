@@ -1,216 +1,25 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://inhamsl.github.io/imsl/gallery.html">
-    <meta charset="UTF-8">
-    <title>Gallery | MSL Inha</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* 갤러리 그리드 레이아웃 */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: #003a71;
-        }
-
-        /* 썸네일 영역 */
-        .gallery-thumbnail {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            background-color: #f8f9fa;
-        }
-
-        .gallery-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-thumbnail img {
-            transform: scale(1.05);
-        }
-
-        /* 텍스트 영역 */
-        .gallery-info {
-            padding: 20px;
-        }
-
-        .gallery-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.15rem;
-            color: #333;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .gallery-date {
-            font-size: 0.85rem;
-            color: #888;
-        }
-
-        /* 게시물 수 표시 (Notice와 비슷한 느낌의 상단바) */
-        .gallery-meta {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <nav>
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="MSL Logo" height="50"></a>
-        <ul>
-            <li><a href="professor.html">PROFESSOR</a></li>
-            <li><a href="research.html">RESEARCH</a></li>
-            <li><a href="publications.html">PUBLICATIONS</a></li>
-            <li><a href="people.html">MEMBERS</a></li>
-            <li class="dropdown">
-                <a href="#">BOARD ▼</a>
-                <div class="dropdown-content">
-                    <a href="notice.html">Notice</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
+---
+layout: default
+title: Gallery
+css: [gallery]
+---
+{%- comment -%} 갤러리 목록 — _gallery 폴더의 글을 날짜 최신순으로 자동 표시 {%- endcomment -%}
+{%- assign gallery = site.gallery | reverse -%}
 <div class="main-wrapper">
     <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">GALLERY</h2>
 
     <div class="gallery-grid">
-        
-        <a href="gallery_view/gallery_view_3.html" class="gallery-item">
+{%- for item in gallery %}
+
+        <a href="{{ item.url | relative_url }}" class="gallery-item">
             <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_3.jpg" alt="gallery_view_3">
+                <img src="{{ item.image | default: '/images/logo.png' | relative_url }}" alt="{{ item.title | escape }}">
             </div>
             <div class="gallery-info">
-                <h3>2026 스승의 날</h3>
-                <p class="gallery-date">2026-05-15</p>
+                <h3>{{ item.title }}</h3>
+                <p class="gallery-date">{{ item.date | date: "%Y-%m-%d" }}</p>
             </div>
         </a>
-
-
-        <a href="gallery_view/gallery_view_2.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_2.jpg" alt="gallery_view_2">
-            </div>
-            <div class="gallery-info">
-                <h3>제33회 한국반도체학술대회 (KCS 2026) 참석</h3>
-                <p class="gallery-date">2026-01-30</p>
-            </div>
-        </a>
-
-
-        <a href="gallery_view/gallery_view_1.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_1.jpg" alt="gallery_view_1">
-            </div>
-            <div class="gallery-info">
-                <h3>2025 스승의 날</h3>
-                <p class="gallery-date">2025-05-15</p>
-            </div>
-        </a>
-
-
-        <a href="gallery_view/gallery_view_905.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_905.jpg" alt="gallery_view_905">
-            </div>
-            <div class="gallery-info">
-                <h3>2024 홈커밍데이</h3>
-                <p class="gallery-date">2024-12-02</p>
-            </div>
-        </a>
-
-
-        <a href="gallery_view/gallery_view_904.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_904.jpg" alt="gallery_view_904">
-            </div>
-            <div class="gallery-info">
-                <h3>2023년도 디스플레이 국가연구개발사업 총괄워크샵 산업통상자원부장관 표창장 수상</h3>
-                <p class="gallery-date">2023-11-27</p>
-            </div>
-        </a>
-
-
-        <a href="gallery_view/gallery_view_903.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_903.jpg" alt="gallery_view_903">
-            </div>
-            <div class="gallery-info">
-                <h3>2017 ASML Tech talk 교수님 수상 사진</h3>
-                <p class="gallery-date">2017-11-08</p>
-            </div>
-        </a>
-
-
-        <a href="gallery_view/gallery_view_902.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_902.jpg" alt="gallery_view_902">
-            </div>
-            <div class="gallery-info">
-                <h3>2017 홈커밍데이</h3>
-                <p class="gallery-date">2017-11-08</p>
-            </div>
-        </a>
-
-
-        <a href="gallery_view/gallery_view_901.html" class="gallery-item">
-            <div class="gallery-thumbnail">
-                <img src="images/gallery/gallery_view_901.jpg" alt="gallery_view_901">
-            </div>
-            <div class="gallery-info">
-                <h3>2016 홈커밍데이</h3>
-                <p class="gallery-date">2016-08-07</p>
-            </div>
-        </a>
-
-
+{%- endfor %}
 
     </div> </div>
-
-
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-
-            Department of Polymer Science and Engineering, Inha University<br>
-            669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
-        </div>
-        <div style="text-align: right;">
-            Tel: +82-32-860-8769 (Lab)<br>
-            Copyright © 2026 MSL. All Rights Reserved.
-        </div>
-    </div>
-</footer>
-</body>
-</html>

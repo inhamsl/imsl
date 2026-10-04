@@ -1,0 +1,59 @@
+.cv-section { margin-top: 40px; }
+.cv-section h4 { 
+    color: #003a71; 
+    border-bottom: 2px solid #003a71; 
+    padding-bottom: 10px; 
+    margin-bottom: 25px; 
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+.year-section { margin-bottom: 45px; }
+.year-label { 
+    font-size: 1.25rem; 
+    font-weight: 900; 
+    color: #00bcd4; 
+    margin-bottom: 15px; 
+    display: block;
+    border-left: 4px solid #00bcd4;
+    padding-left: 12px;
+}
+.pub-list { list-style: none; padding: 0; margin-left: 5px; }
+.pub-list li { 
+    margin-bottom: 30px; 
+    position: relative;
+    padding-left: 25px;
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 20px;
+}
+.pub-list li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #003a71;
+    font-size: 1.2rem;
+}
+.pub-title { 
+    display: block;
+    font-weight: bold; 
+    font-size: 1.05rem; 
+    color: #000;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+.pub-authors { 
+    display: block;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 4px;
+}
+.pub-info { 
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+.pub-journal { font-style: italic; color: #00bcd4; font-weight: bold; }
+
+/* DOI를 넣은 논문은 제목이 링크가 돼요 (모양은 기존 제목과 동일) */
+.pub-title a { color: inherit; text-decoration: none; }
+.pub-title a:hover { color: #00bcd4; text-decoration: underline; }

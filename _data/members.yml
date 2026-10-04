@@ -1,0 +1,61 @@
+members:
+  - role: phd
+    name_ko: 김가영
+    name_en: Gayoung Kim
+    photo: /images/people/gayoung_kim.jpg
+    research: Synthesis and Process of Fluorinated Photoresist Materials, EUV resists
+    email: brrxzz@naver.com
+  - role: ms
+    name_ko: 강석민
+    name_en: Seokmin Kang
+    photo: /images/people/seokmin_kang.jpg
+    research: Synthesis of EUV resists
+    email: 99seokmin@naver.com
+  - role: ms
+    name_ko: 김서연
+    name_en: Seoyeon Kim
+    photo: /images/people/seoyeon_kim.jpg
+    research: Synthesis and Process of Fluorinated Photoresist Materials
+    email: gims75243@gmail.com
+  - role: ms
+    name_ko: 박다인
+    name_en: Dain Park
+    photo: /images/people/dain_park.jpg
+    research: Synthesis of EUV resists
+    email: daiddd0106@gmail.com
+  - role: ms
+    name_ko: 이진석
+    name_en: Jinseok Lee
+    photo: /images/people/jinseok_lee.jpg
+    research: Synthesis of EUV resists
+    email: enfwowlstjr@naver.com
+  - role: ms
+    name_ko: 김경희
+    name_en: Gyunghui Kim
+    photo: /images/people/gyunghui_kim.jpg
+    research: Synthesis of EUV resists
+    email: aok2648018@gmail.com
+  - role: ms
+    name_ko: 남가은
+    name_en: Gaeun Nam
+    photo: /images/people/gaeun_nam.jpg
+    research: Synthesis of EUV resists
+    email: 1220972nam@inha.edu
+  - role: ms
+    name_ko: 유서진
+    name_en: Seojin Yu
+    photo: /images/people/seojin_yu.jpg
+    research: Synthesis and Process of Fluorinated Photoresist Materials
+    email: seojin337@inha.edu
+  - role: ms
+    name_ko: 이서연
+    name_en: Seoyeon Lee
+    photo: /images/people/seoyeon_lee.jpg
+    research: Synthesis of EUV resists
+    email: seoyeon3434@gmail.com
+  - role: ms
+    name_ko: 최영민
+    name_en: Youngmin Choi
+    photo: /images/people/youngmin_choi.jpg
+    research: Synthesis and Process of Fluorinated Photoresist Materials
+    email: choisky7050@naver.com

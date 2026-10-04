@@ -1,0 +1,29 @@
+---
+layout: default
+---
+{%- comment -%}
+  공지사항 글 화면. 글 내용(_notices/*.html)의 사진 주소 "/images/..."를
+  사이트 주소(/imsl 등)에 맞게 바꿔서 보여줍니다.
+{%- endcomment -%}
+{%- capture img_prefix %}src="{{ site.baseurl }}/images/{% endcapture -%}
+<div class="main-wrapper">
+    <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">NOTICE</h2>
+
+    <div class="view-container">
+        <div class="view-header">
+            <h3>{{ page.title }}</h3>
+            <div class="view-info">
+                <span><strong>Date:</strong> {{ page.date | date: "%Y. %m. %d" }}</span>
+                <span><strong>Author:</strong> {{ page.author | default: "MSL Webmaster" }}</span>
+            </div>
+        </div>
+
+        <div class="view-content">
+{{ content | replace: 'src="/images/', img_prefix }}
+        </div>
+    </div>
+
+    <div class="view-footer">
+        <a href="{{ '/notice.html' | relative_url }}" class="btn-list">Back to List</a>
+    </div>
+</div>

@@ -1,149 +1,41 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://inhamsl.github.io/imsl/people.html">
-    <meta charset="UTF-8">
-    <title>Members | MSL Inha</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .member-section { margin-top: 50px; }
-        .member-section h3 { 
-            color: #003a71; 
-            border-left: 5px solid #003a71; 
-            padding-left: 15px; 
-            margin-bottom: 25px;
-            font-size: 1.4rem;
-        } 
-
-        /* 2열 격자 배치* */
-        .member-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 25px;
-        }
-
-        .member-card {
-            display: flex;
-            gap: 20px;
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            padding: 20px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .member-card:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-color: #003a71;
-        }
-
-        .member-photo img {
-            width: 120px;
-            height: 150px;
-            object-fit: cover;
-            border: 1px solid #ddd;
-            background: #fff;
-            padding: 3px;
-        }
-
-        .member-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .member-info h4 { margin: 0 0 10px 0; color: #003a71; font-size: 1.2rem; }
-        .member-info p { margin: 4px 0; font-size: 0.9rem; color: #444; line-height: 1.4; }
-        
-        /* Alumni 테이블 */
-        .alumni-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
-        .alumni-table th { background-color: #f8f9fa; border-top: 2px solid #003a71; border-bottom: 1px solid #dee2e6; padding: 12px; text-align: left; color: #003a71; }
-        .alumni-table td { padding: 12px; border-bottom: 1px solid #eee; }
-
-        @media (max-width: 768px) { .member-grid { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body>
-<header>
-    <nav>
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="MSL Logo" height="50"></a>
-        <ul>
-            <li><a href="professor.html">PROFESSOR</a></li>
-            <li><a href="research.html">RESEARCH</a></li>
-            <li><a href="publications.html">PUBLICATIONS</a></li>
-            <li><a href="people.html">MEMBERS</a></li>
-            <li class="dropdown">
-                <a href="#">BOARD ▼</a>
-                <div class="dropdown-content">
-                    <a href="notice.html">Notice</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
-
+---
+layout: default
+title: Members
+css: [people]
+---
+{%- comment -%}
+  구성원 — _data/members.yml (현재 구성원), _data/alumni.yml (졸업생)
+  Pages CMS의 "구성원" / "졸업생" 메뉴에서 수정해요.
+{%- endcomment -%}
+{%- assign sections = "postdoc|Post-Doctoral Researchers;phd|Ph.D. Students;ms|M.S. Students;undergrad|Undergraduate Researchers" | split: ";" -%}
 <div class="main-wrapper">
     <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">MEMBERS</h2>
+{%- for section in sections %}
+{%- assign parts = section | split: "|" %}
+{%- assign group = site.data.members.members | where: "role", parts[0] %}
+{%- if group.size > 0 %}
 
     <section class="member-section">
-        <h3>Ph.D. Students</h3>
+        <h3>{{ parts[1] }}</h3>
         <div class="member-grid">
+{%- for m in group %}
             <div class="member-card">
-                <div class="member-photo"><img src="images/people/gayoung_kim.jpg" alt="Gayoung Kim"></div>
+                <div class="member-photo"><img src="{{ m.photo | default: '/images/people/placeholder.svg' | relative_url }}" alt="{{ m.name_en | default: m.name_ko }}"></div>
                 <div class="member-info">
-                    <h4>김가영 (Gayoung Kim)</h4>
-                    <p><strong>Research:</strong> Synthesis and Process of Fluorinated Photoresist Materials, EUV resists</p>
-                    <p><strong>E-mail:</strong> brrxzz@naver.com</p>
+                    <h4>{{ m.name_ko }}{% if m.name_en %} ({{ m.name_en }}){% endif %}</h4>
+{%- if m.research %}
+                    <p><strong>Research:</strong> {{ m.research }}</p>
+{%- endif %}
+{%- if m.email %}
+                    <p><strong>E-mail:</strong> {{ m.email }}</p>
+{%- endif %}
                 </div>
             </div>
+{%- endfor %}
         </div>
     </section>
-
-    <section class="member-section">
-        <h3>M.S. Students</h3>
-        <div class="member-grid">
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/seokmin_kang.jpg" alt="Seokmin Kang"></div>
-                <div class="member-info"><h4>강석민 (Seokmin Kang)</h4><p><strong>Research:</strong> Synthesis of EUV resists</p><p><strong>E-mail:</strong> 99seokmin@naver.com</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/seoyeon_kim.jpg" alt="Seoyeon Kim"></div>
-                <div class="member-info"><h4>김서연 (Seoyeon Kim)</h4><p><strong>Research:</strong> Synthesis and Process of Fluorinated Photoresist Materials</p><p><strong>E-mail:</strong> gims75243@gmail.com</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/dain_park.jpg" alt="Dain Park"></div>
-                <div class="member-info"><h4>박다인 (Dain Park)</h4><p><strong>Research:</strong> Synthesis of EUV resists </p><p><strong>E-mail:</strong> daiddd0106@gmail.com</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/jinseok_lee.jpg" alt="Jinseok Lee"></div>
-                <div class="member-info">
-                    <h4>이진석 (Jinseok Lee)</h4>
-                    <p><strong>Research:</strong> Synthesis of EUV resists</p>
-                    <p><strong>E-mail:</strong> enfwowlstjr@naver.com</p>
-                </div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/gyunghui_kim.jpg" alt="Gyunghui Kim"></div>
-                <div class="member-info"><h4>김경희 (Gyunghui Kim)</h4><p><strong>Research:</strong> Synthesis of EUV resists </p><p><strong>E-mail:</strong> aok2648018@gmail.com</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/gaeun_nam.jpg" alt="Gaeun Nam"></div>
-                <div class="member-info"><h4>남가은 (Gaeun Nam)</h4><p><strong>Research:</strong> Synthesis of EUV resists </p><p><strong>E-mail:</strong> 1220972nam@inha.edu</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/seojin_yu.jpg" alt="Seojin Yu"></div>
-                <div class="member-info"><h4>유서진 (Seojin Yu)</h4><p><strong>Research:</strong> Synthesis and Process of Fluorinated Photoresist Materials </p><p><strong>E-mail:</strong> seojin337@inha.edu</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/seoyeon_lee.jpg" alt="Seoyeon Lee"></div>
-                <div class="member-info"><h4>이서연 (Seoyeon Lee)</h4><p><strong>Research:</strong> Synthesis of EUV resists </p><p><strong>E-mail:</strong> seoyeon3434@gmail.com</p></div>
-            </div>
-            <div class="member-card">
-                <div class="member-photo"><img src="images/people/youngmin_choi.jpg" alt="Youngmin Choi"></div>
-                <div class="member-info"><h4>최영민 (Youngmin Choi)</h4><p><strong>Research:</strong> Synthesis and Process of Fluorinated Photoresist Materials </p><p><strong>E-mail:</strong> choisky7050@naver.com</p></div>
-            </div>
-
-        </div>
-    </section>
+{%- endif %}
+{%- endfor %}
 
     <section class="member-section" style="margin-bottom: 50px;">
         <h3>Alumni</h3>
@@ -158,77 +50,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>유수영</td><td>MSc</td><td>2026</td><td>-</td><td>dbtndud0922@naver.com</td></tr>
-                <tr><td>정예원</td><td>MSc</td><td>2026</td><td>-</td><td>jyw196@naver.com</td></tr>
-                <tr><td>구예진</td><td>Ph.D</td><td>2025</td><td>IMEC Post-doc</td><td>yjku0424@gmail.com</td></tr>
-                <tr><td>김준식</td><td>MSc</td><td>2026</td><td>SK hynix</td><td>zzundor_326@naver.com</td></tr>
-                <tr><td>권유정</td><td>MSc</td><td>2025</td><td>Applied materials</td><td>kyj123@inha.edu</td></tr>
-                <tr><td>전수빈</td><td>MSc</td><td>2025</td><td>Samsung Electronics</td><td>sb1825@naver.com</td></tr>
-                <tr><td>진유진</td><td>MSc</td><td>2025</td><td>LG Electronics</td><td>jyj000528@naver.com</td></tr>
-                <tr><td>황성욱</td><td>MSc</td><td>2025</td><td>SK hynix</td><td>swhwang@inha.edu</td></tr>
-                <tr><td>신상민</td><td>MSc</td><td>2024</td><td>Nexen Tire</td><td>ssm1599@naver.com</td></tr>
-                <tr><td>위규찬</td><td>MSc</td><td>2024</td><td>Miwon Commercial</td><td>poseidon9481@naver.com</td></tr>
-                <tr><td>이규영</td><td>MSc</td><td>2024</td><td>Kyungshin</td><td>dlrbdud23@gmail.com</td></tr>
-                <tr><td>김민승</td><td>MSc</td><td>2024</td><td>Samsung Electronics</td><td>kms21144@naver.com</td></tr>
-                <tr><td>최효은</td><td>MSc</td><td>2024</td><td>LG Electronics</td><td>gydms707@naver.com</td></tr>
-                <tr><td>최민규</td><td>MSc</td><td>2023</td><td>Samsung Electronics</td><td>choimk1996@naver.com</td></tr>
-                <tr><td>안형주</td><td>MSc</td><td>2023</td><td>Samsung Electronics</td><td>hjhj9692@naver.com</td></tr>
-                <tr><td>임병진</td><td>MSc</td><td>2023</td><td>LG Electronics</td><td>aaa136@naver.com</td></tr>
-                <tr><td>권기영</td><td>MSc</td><td>2023</td><td>Samsung Electronics</td><td>msm1031@naver.com</td></tr>
-                <tr><td>우지훈</td><td>MSc</td><td>2022</td><td>Hanwha Solutions</td><td>ww9953@naver.com</td></tr>
-                <tr><td>김지연</td><td>MSc</td><td>2022</td><td>LG Energy Solution</td><td>crasif@naver.com</td></tr>
-                <tr><td>최승수</td><td>MSc</td><td>2022</td><td>LG Chem</td><td>css5452@naver.com</td></tr>
-                <tr><td>김준일</td><td>MSc</td><td>2022</td><td>Samsung Electronics</td><td>wnsdlf1068@naver.com</td></tr>
-                <tr><td>오현택</td><td>Ph.D</td><td>2021</td><td>SK Materials</td><td>oht3431@gmail.com</td></tr>
-                <tr><td>박한빛</td><td>MSc</td><td>2021</td><td>KC Tech</td><td>sia0807@naver.com</td></tr>
-                <tr><td>이세진</td><td>MSc</td><td>2021</td><td>Dongwoo Fine-Chem</td><td>try887@naver.com</td></tr>
-                <tr><td>박춘희</td><td>MSc</td><td>2021</td><td>Samsung Electronics</td><td>nhd8991@naver.com</td></tr>
-                <tr><td>손종찬</td><td>Ph.D</td><td>2020</td><td>SK hynix</td><td>sonjc88@naver.com</td></tr>
-                <tr><td>한재훈</td><td>MSc</td><td>2020</td><td>KCI Limited</td><td>gkswo07@naver.com</td></tr>
-                <tr><td>박근우</td><td>MSc</td><td>2020</td><td>Samsung Electronics</td><td>rmsdn0112@naver.com</td></tr>
-                <tr><td>문정석</td><td>MSc</td><td>2020</td><td>Samsung Electronics</td><td>mjs428@naver.com</td></tr>
-                <tr><td>원종인</td><td>MSc</td><td>2020</td><td>Samsung Electronics</td><td>no2608@naver.com</td></tr>
-                <tr><td>안진영</td><td>MSc</td><td>2019</td><td>Samsung Electronics</td><td>asdffdsa72@naver.com</td></tr>
-                <tr><td>강새은</td><td>MSc</td><td>2019</td><td>HP Korea</td><td>rkdtodms0216@naver.com</td></tr>
-                <tr><td>김미소</td><td>MSc</td><td>2019</td><td>LG display</td><td>qsef9099@naver.com</td></tr>
-                <tr><td>이상호</td><td>MSc</td><td>2018</td><td>LG Chem</td><td>511489@naver.com</td></tr>
-                <tr><td>권호영</td><td>Ph.D</td><td>2018</td><td>U Chem﻿</td><td>ceo@u-chem.co.kr</td></tr>
-                <tr><td>정석헌</td><td>Ph.D</td><td>2018</td><td>SK hynix</td><td>haha2429@naver.com</td></tr>
-                <tr><td>박준범</td><td>MSc</td><td>2018</td><td>Hyosung</td><td>qsef9099@naver.com</td></tr>
-                <tr><td>박우원</td><td>MSc</td><td>2018</td><td>LG Chem</td><td>mild_demon11@naver.com</td></tr>
-                <tr><td>이아름</td><td>MSc</td><td>2017</td><td>Samsung Display</td><td>areum920526@naver.com</td></tr>
-                <tr><td>김미선</td><td>MSc</td><td>2017</td><td>LG Chem</td><td>rlaaltjs430@naver.com</td></tr>
-                <tr><td>김혜리</td><td>MSc</td><td>2017</td><td>SK Innovation</td><td>khl8953@naver.com</td></tr>
-                <tr><td>김종민</td><td>MSc</td><td>2017</td><td>KAIST, Ph. D course</td><td>jmwrd@naver.com</td></tr>
-                <tr><td>최영훈</td><td>MSc</td><td>2016</td><td>Kolmar Korea</td><td>hoon2871@naver.com</td></tr>
-                <tr><td>이승용</td><td>MSc</td><td>2015</td><td>Hyosung</td><td>leewhite0412@naver.com</td></tr>
-                <tr><td>박혜진</td><td>MSc</td><td>2015</td><td>Lotte Chemical</td><td>hyejin6209@naver.com</td></tr>
-                <tr><td>김희진</td><td>MSc</td><td>2015</td><td>SK hynix</td><td>bsfam1234@gmail.com</td></tr>
-                <tr><td>박태승</td><td>MSc</td><td>2015</td><td>LG Chem</td><td>ptae2000@naver.com</td></tr>
-                <tr><td>이지원</td><td>MSc</td><td>2014</td><td>Huvis</td><td>saniel@huvis.com</td></tr>
-                <tr><td>지중휘</td><td>MSc</td><td>2014</td><td>Kukdo Chemical</td><td>jjhjoa@naver.com</td></tr>
-                <tr><td>김대영</td><td>MSc</td><td>2014</td><td>Hyosung</td><td>kdy871205@hyosung.com</td></tr>
-                <tr><td>김수현</td><td>MSc</td><td>2013</td><td>LG display</td><td>tnguso214@naver.com</td></tr>
-                <tr><td>김민철</td><td>MSc</td><td>2013</td><td>Yonsei university, Ph. D course</td><td>gromit123@naver.com</td></tr>
-                <tr><td>김대희</td><td>MSc</td><td>2013</td><td>LG display</td><td>kimdaehee21@gmail.com</td></tr>
-                <tr><td>김영태</td><td>Ph.D candidate</td><td>-</td><td>-</td><td>hellpo@naver.com</td></tr>
+{%- assign alumni = site.data.alumni.alumni | reverse %}
+{%- for a in alumni %}
+                <tr><td>{{ a.name }}</td><td>{{ a.degree | default: "-" }}</td><td>{{ a.year | default: "-" }}</td><td>{{ a.position | default: "-" }}</td><td>{{ a.email | default: "-" }}</td></tr>
+{%- endfor %}
             </tbody>
         </table>
     </section>
 </div>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-            Department of Polymer Science and Engineering, Inha University<br>
-            669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
-        </div>
-        <div style="text-align: right;">
-            Tel: +82-32-860-8769 (Lab)<br>
-            Copyright © 2026 MSL. All Rights Reserved.
-        </div>
-    </div>
-</footer>
-</body>
-</html>

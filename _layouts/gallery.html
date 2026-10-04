@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<div class="main-wrapper">
+    <h2 style="border-bottom: 2px solid #003a71; padding-bottom: 10px; color: #003a71; font-weight: 900;">GALLERY</h2>
+
+    <div style="margin: 30px 0 50px 0; padding: 25px; background-color: #f8f9fa; border: 1px solid #eee;">
+        <h3 style="margin: 0 0 20px 0; color: #003a71; font-size: 1.6rem;">{{ page.title }}</h3>
+        <div class="info-row">
+            <span class="info-label">Date</span>
+            <span class="info-text">{% if page.start_date %}{{ page.start_date | date: "%Y. %m. %d" }} - {% endif %}{{ page.date | date: "%Y. %m. %d" }}</span>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h4>Photo & Description</h4>
+
+        <div class="cv-item">
+            <div class="gallery-photo-box">
+                <img src="{{ page.image | default: '/images/logo.png' | relative_url }}" alt="{{ page.title | escape }}">
+            </div>
+
+            <div class="cv-content">
+                <strong>{{ page.heading | default: page.title }}</strong>
+<p>
+{{ page.description | newline_to_br }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px; padding-bottom: 80px;">
+        <a href="{{ '/gallery.html' | relative_url }}" style="display: inline-block; background-color: #003a71; color: white; padding: 12px 40px; text-decoration: none; border-radius: 3px; font-weight: bold;">LIST</a>
+    </div>
+</div>

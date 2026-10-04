@@ -1,205 +1,18 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta property="og:title" content="인하대학교 재료합성연구실">
-
-<meta property="og:description" content="인하대학교 고분자공학과 재료합성연구실(Materials Synthesis Laboratory) 공식 홈페이지">
-
-<meta property="og:image" content="https://inhamsl.github.io/imsl/images/logo.png">
-
-<meta property="og:site_name" content="인하대학교 재료합성연구실">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "인하대학교 재료합성연구실",
-  "alternateName": ["Materials Synthesis Laboratory", "인하대 MSL"],
-  "url": "https://imsl.inha.ac.kr/"
-}
-</script>
-<meta name="google-site-verification" content="BxnJuDsgB4O7jUKx7HjwCG65BWmSS0dsDXsCUqBe_Wc" />
-<link rel="canonical" href="https://inhamsl.github.io/imsl/index.html">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materials Synthesis Laboratory | Inha Univ.</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* 기본 배경 및 폰트 설정 */
-        body { background-color: #f4f6f8; margin: 0; padding: 0; }
-
-        /* --- 1. 레이아웃 통합 및 여백 확대 --- */
-        .hero-container, .main-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        /* --- 2. Boxed Hero Banner --- */
-        .hero-container { margin-top: 40px; margin-bottom: 60px; }
-        .hero-banner {
-            width: 100%;
-            height: 300px; 
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            background: 
-                linear-gradient(to bottom, rgba(0, 58, 113, 0.5), rgba(0, 58, 113, 0.2)),
-                url('images/main_hero.jpg') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        .hero-banner h1 { 
-            font-size: 2.8rem; 
-            font-weight: 900; 
-            text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4); 
-            text-align: center;
-            margin: 0;
-        }
-        .hero-banner h1 span { color: #00bcd4; }
-
-        /* --- 3. Latest Publication --- */
-        .latest-pub-container { width: 100%; margin-bottom: 60px; }
-        .pub-highlight-box {
-            background: #fff;
-            border: 1px solid #e1e4e8;
-            border-radius: 12px;
-            padding: 35px;
-            display: flex;
-            gap: 35px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        .pub-highlight-box:hover { transform: translateY(-5px); border-color: #00bcd4; }
-        .pub-img-side { flex: 0 0 220px; }
-        .pub-img-side img { width: 100%; border-radius: 4px; border: 1px solid #eee; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
-        .pub-info-side { flex: 1; }
-        .pub-journal { color: #00bcd4; font-weight: 800; font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        .pub-title-main { font-size: 1.45rem; color: #003a71; margin-bottom: 15px; line-height: 1.35; font-weight: 800; }
-        .pub-authors-main { font-size: 0.95rem; color: #555; margin-bottom: 15px; line-height: 1.6; }
-
-        /* --- 4. Notice & Gallery Grid --- */
-        .main-content-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px; 
-            margin-bottom: 80px; 
-        }
-        .content-box { 
-            background: #fff; 
-            border: 1px solid #e1e4e8; 
-            border-radius: 12px; 
-            padding: 25px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04); 
-            transition: transform 0.2s ease;
-            min-height: 250px; /* 박스 최소 높이를 고정하여 안정감 부여 */
-            display: flex;
-            flex-direction: column;
-        }
-        .content-box-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid #003a71; 
-            padding-bottom: 12px; 
-            margin-bottom: 20px; 
-        }
-        .content-box-header h3 { color: #003a71; margin: 0; font-size: 1.25rem; font-weight: 800; }
-        .btn-more { text-decoration: none; color: #00bcd4; font-size: 1.3rem; font-weight: bold; }
-
-        .notice-list { list-style: none; padding: 0; margin: 0; }
-        .notice-list li { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; gap: 15px; }
-        .notice-list li a { text-decoration: none; color: #333; font-size: 0.95rem; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
-        .notice-list li a:hover { color: #00bcd4; font-weight: bold; }
-        .notice-date { color: #999; font-size: 0.85rem; flex-shrink: 0; }
-
-        /* --- 갤러리 크기 및 위치 수정 부분 --- */
-        #gallery-sync-box {
-            flex: 1; /* 남은 공간을 채움 */
-            display: flex;
-            align-items: center; /* 세로 중앙 정렬 */
-        }
-        .gallery-link { 
-            display: flex; 
-            gap: 25px; 
-            text-decoration: none; 
-            color: inherit; 
-            align-items: center; 
-            width: 100%;
-        }
-        .gallery-link img { 
-            width: 240px;  /* 사진 크기 확대 (180px -> 240px) */
-            height: 160px; /* 사진 높이 확대 (125px -> 160px) */
-            object-fit: cover; 
-            border-radius: 8px; 
-            border: 1px solid #eee; 
-            flex-shrink: 0; /* 이미지 크기 고정 */
-        }
-        .gallery-preview-text { 
-            flex: 1; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* 텍스트 내부 요소 세로 중앙 정렬 */
-        }
-        .gallery-preview-text h4 { margin: 0 0 12px 0; color: #003a71; font-size: 1.2rem; font-weight: bold; line-height: 1.4; }
-        .gallery-preview-text p { font-size: 0.95rem; color: #666; line-height: 1.6; margin: 0; }
-
-        /* --- 5. Link Cards --- */
-        .link-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 80px; }
-        .card { 
-            height: 160px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-radius: 12px; 
-            color: white; 
-            text-decoration: none; 
-            font-size: 1.55rem; 
-            font-weight: 800; 
-            position: relative; 
-            overflow: hidden; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-        }
-        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 58, 113, 0.6); transition: 0.3s; }
-        .card:hover::before { background: rgba(0, 188, 212, 0.7); }
-        .card span { position: relative; z-index: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-
-        @media (max-width: 768px) {
-            .hero-banner { height: 250px; }
-            .hero-banner h1 { font-size: 1.8rem; }
-            .main-content-grid, .link-cards, .pub-highlight-box { grid-template-columns: 1fr; flex-direction: column; }
-            .gallery-link { flex-direction: column; text-align: center; }
-            .gallery-link img { width: 100%; height: auto; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <nav>
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="MSL Logo" height="50"></a>
-        <ul>
-            <li><a href="professor.html">PROFESSOR</a></li>
-            <li><a href="research.html">RESEARCH</a></li>
-            <li><a href="publications.html">PUBLICATIONS</a></li>
-            <li><a href="people.html">MEMBERS</a></li>
-            <li class="dropdown">
-                <a href="#">BOARD ▼</a>
-                <div class="dropdown-content">
-                    <a href="notice.html">Notice</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
+---
+layout: default
+full_title: Materials Synthesis Laboratory | Inha Univ.
+home_meta: true
+css: [index]
+---
+{%- comment -%}
+  메인 화면. 아래 내용은 자동으로 채워져요.
+  - LATEST PUBLICATION: _data/home.yml (Pages CMS "메인 화면 - 대표 논문")
+  - NOTICE: 공지사항 최신 3개
+  - GALLERY: 갤러리 최신 1개
+{%- endcomment -%}
+{%- assign paper = site.data.home.latest_paper -%}
+{%- assign notices = site.notices | reverse -%}
+{%- assign gallery = site.gallery | reverse -%}
 
 <div class="hero-container">
     <section class="hero-banner">
@@ -208,129 +21,72 @@
 </div>
 
 <div class="main-wrapper">
+{%- if paper and paper.title %}
+{%- if paper.link contains "://" %}{% assign paper_link = paper.link %}{% else %}{% assign paper_link = paper.link | prepend: "https://doi.org/" %}{% endif %}
     <div class="latest-pub-container">
         <div class="content-box-header">
             <h3><br>LATEST PUBLICATION</h3>
-            <a href="publications.html" class="btn-more">+</a>
+            <a href="{{ '/publications.html' | relative_url }}" class="btn-more">+</a>
         </div>
-        <a href="https://doi.org/10.1021/acs.oprd.6c00101" target="_blank" class="pub-highlight-box">
+        <a href="{{ paper_link }}" target="_blank" class="pub-highlight-box">
+{%- if paper.image %}
             <div class="pub-img-side">
-                <img src="images/latest_paper.jpg" alt="latest paper">
+                <img src="{{ paper.image | relative_url }}" alt="latest paper">
             </div>
+{%- endif %}
             <div class="pub-info-side">
-                <span class="pub-journal">Organic Process Research & Development<br>(2026)</span>
-                <h4 class="pub-title-main">Multi-Step Flow Synthesis of Photoresist Polymers Involving Copolymerization and Postpolymerization Modifications</h4>
+                <span class="pub-journal">{{ paper.journal }}<br>({{ paper.published | date: "%Y" }})</span>
+                <h4 class="pub-title-main">{{ paper.title }}</h4>
                 <p class="pub-authors-main">
-                    Ki-Young Kwon, Seungyeon Choi, Ji-Hoon Woo, Yejin Ku, Gayoung Kim, <strong>Jin-Kyun Lee*</strong>, <strong>Myungwoong Kim*</strong> 
+                    {% assign names = paper.authors | split: ", " %}{% for name in names %}{% if name contains "*" %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
                 </p>
                 <div style="margin-top: 20px; border-top: 1px solid #f0f0f0; padding-top: 15px;">
-                    <span class="notice-date">Published: June 16, 2026</span>
-                    <span style="margin-left: 20px; color: #00bcd4; font-size: 0.85rem; font-weight: bold;">DOI: https://doi.org/10.1021/acs.oprd.6c00101</span>
+                    <span class="notice-date">Published: {{ paper.published | date: "%B %-d, %Y" }}</span>
+                    <span style="margin-left: 20px; color: #00bcd4; font-size: 0.85rem; font-weight: bold;">DOI: {{ paper_link }}</span>
                 </div>
             </div>
         </a>
     </div>
+{%- endif %}
 
     <div class="main-content-grid">
         <div class="content-box">
             <div class="content-box-header">
                 <h3>NOTICE</h3>
-                <a href="notice.html" class="btn-more">+</a>
+                <a href="{{ '/notice.html' | relative_url }}" class="btn-more">+</a>
             </div>
             <ul class="notice-list" id="notice-sync-list">
-                <li><a href="notice_view/notice_view_13.html">Loading...</a> <span class="notice-date"></span></li>
-                <li><a href="notice_view/notice_view_12.html">Loading...</a> <span class="notice-date"></span></li>
-                <li><a href="notice_view/notice_view_11.html">Loading...</a> <span class="notice-date"></span></li>
+{%- for notice in notices limit: 3 %}
+                <li><a href="{{ notice.url | relative_url }}">{{ notice.title }}</a> <span class="notice-date">{{ notice.date | date: "%Y. %m. %d" }}</span></li>
+{%- endfor %}
             </ul>
         </div>
 
         <div class="content-box">
             <div class="content-box-header">
                 <h3>GALLERY</h3>
-                <a href="gallery.html" class="btn-more">+</a>
+                <a href="{{ '/gallery.html' | relative_url }}" class="btn-more">+</a>
             </div>
             <div id="gallery-sync-box">
-                <a href="gallery_view/gallery_view_3.html" class="gallery-link">
-                    <div style="padding: 20px; color: #999;">Updating content...</div>
+{%- assign g = gallery.first %}
+{%- if g %}
+                <a href="{{ g.url | relative_url }}" class="gallery-link">
+                <img src="{{ g.image | default: '/images/logo.png' | relative_url }}" alt="Latest Gallery">
+                <div class="gallery-preview-text">
+                    <h4>{{ g.title }}</h4>
+                    <p><strong>{{ g.heading | default: g.title }}</strong></p>
+                    <span class="notice-date">{% if g.start_date %}{{ g.start_date | date: "%Y. %m. %d" }}{% else %}{{ g.date | date: "%Y. %m. %d" }}{% endif %}</span>
+                </div>
                 </a>
+{%- endif %}
             </div>
         </div>
     </div>
 
     <div class="link-cards">
-        <a href="research.html" class="card" style="background-image: url('images/card_research.jpg');"><span>RESEARCH</span></a>
-        <a href="publications.html" class="card" style="background-image: url('images/card_pub.jpg');"><span>PUBLICATIONS</span></a>
-        <a href="people.html" class="card" style="background-image: url('images/card_members.jpg');"><span>MEMBERS</span></a>
+        <a href="{{ '/research.html' | relative_url }}" class="card" style="background-image: url('{{ '/images/card_research.jpg' | relative_url }}');"><span>RESEARCH</span></a>
+        <a href="{{ '/publications.html' | relative_url }}" class="card" style="background-image: url('{{ '/images/card_pub.jpg' | relative_url }}');"><span>PUBLICATIONS</span></a>
+        <a href="{{ '/people.html' | relative_url }}" class="card" style="background-image: url('{{ '/images/card_members.jpg' | relative_url }}');"><span>MEMBERS</span></a>
         <br>
     </div>
 </div>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <strong>인하대학교 재료합성연구실 &nbsp;&nbsp;MATERIALS SYNTHESIS LABORATORY </strong><br><br>
-            Department of Polymer Science and Engineering, Inha University<br>
-            669, Building 2, 100 Inha-ro, Michuhol-gu, Incheon 22212, Korea
-        </div>
-        <div style="text-align: right;">
-            Tel: +82-32-860-8769 (Lab)<br>
-            Copyright © 2026 MSL. All Rights Reserved.
-        </div>
-    </div>
-</footer>
-
-<script>
-    async function syncContent() {
-        const parser = new DOMParser();
-
-        // 1. 공지사항 동기화
-        const notices = document.querySelectorAll('#notice-sync-list li');
-        for (let li of notices) {
-            const a = li.querySelector('a');
-            const url = a.getAttribute('href');
-            if (!url || url === "#") continue;
-            try {
-                const res = await fetch(url);
-                if (!res.ok) throw new Error();
-                const html = await res.text();
-                const doc = parser.parseFromString(html, 'text/html');
-                const title = doc.querySelector('h3');
-                if (title) a.innerText = title.innerText;
-                const dateMatch = doc.body.innerText.match(/\d{4}\.\s*\d{2}\.\s*\d{2}/);
-                if (dateMatch) li.querySelector('.notice-date').innerText = dateMatch[0];
-            } catch (e) { li.style.display = 'none'; }
-        }
-
-        // 2. 갤러리 동기화
-        const galleryBox = document.querySelector('#gallery-sync-box .gallery-link');
-        try {
-            const res = await fetch('gallery_view/gallery_view_3.html');
-            if (!res.ok) throw new Error();
-            const html = await res.text();
-            const doc = parser.parseFromString(html, 'text/html');
-
-            const title = doc.querySelector('h3') ? doc.querySelector('h3').innerText : "Update";
-            const imgElement = doc.querySelector('.gallery-photo-box img') || doc.querySelector('img');
-            let imgSrc = "";
-            if (imgElement) {
-                const originalSrc = imgElement.getAttribute('src');
-                imgSrc = originalSrc.startsWith('../') ? originalSrc.substring(3) : originalSrc;
-            }
-            const boldMsg = doc.querySelector('strong') ? doc.querySelector('strong').innerText : "";
-            const dateMatch = doc.body.innerText.match(/\d{4}\.\s*\d{2}\.\s*\d{2}/);
-
-            galleryBox.innerHTML = `
-                <img src="${imgSrc}" alt="Latest Gallery" onerror="this.src='images/logo.png';">
-                <div class="gallery-preview-text">
-                    <h4>${title}</h4>
-                    <p><strong>${boldMsg}</strong></p>
-                    <span class="notice-date">${dateMatch ? dateMatch[0] : ""}</span>
-                </div>
-            `;
-        } catch (e) { console.log("Gallery sync failed."); }
-    }
-    window.addEventListener('DOMContentLoaded', syncContent);
-</script>
-
-</body>
-</html>

@@ -1,0 +1,56 @@
+/* 게시판 전용 스타일 */
+.notice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 0.95rem;
+    margin-bottom: 80px; /* 하단 여백 추가 */
+}
+
+.notice-table thead tr {
+    background-color: #f8f9fa;
+    border-top: 2px solid #003a71;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.notice-table th {
+    padding: 15px 10px;
+    color: #003a71;
+    font-weight: bold;
+    text-align: center;
+}
+
+.notice-table td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+/* 제목 왼쪽 정렬 및 링크 스타일 */
+.notice-table td.title {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.notice-table td.title a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+    display: block; /* 클릭 영역 확대 */
+}
+
+.notice-table td.title a:hover {
+    color: #00bcd4;
+    text-decoration: underline;
+}
+
+/* 행 마우스 오버 효과 */
+.notice-table tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* 번호, 날짜 중앙 정렬 */
+.notice-table td.center {
+    text-align: center;
+    color: #888;
+}
